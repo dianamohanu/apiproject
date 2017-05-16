@@ -8,7 +8,6 @@
 
         <property name="annotatedClasses">
             <list>
-                <value>com.myproject.domain.Test</value>
                 <value>com.myproject.domain.Address</value>
                 <value>com.myproject.domain.Client</value>
                 <value>com.myproject.domain.Reservation</value>
