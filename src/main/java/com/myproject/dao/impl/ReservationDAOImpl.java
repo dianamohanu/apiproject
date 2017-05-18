@@ -2,6 +2,7 @@ package com.myproject.dao.impl;
 
 import com.myproject.dao.ReservationDAO;
 import com.myproject.domain.Reservation;
+import com.myproject.util.DateUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository("reservationDAO")
@@ -23,6 +25,34 @@ public class ReservationDAOImpl implements ReservationDAO {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("SELECT RE FROM Reservation AS RE, Room AS RO WHERE RE.room.roomId = RO.roomId AND RO.hotel.hotelId = :hotelId");
         query.setParameter("hotelId", hotelId);
+        List<Reservation> reservations = query.list();
+        return reservations;
+    }
+
+    @Override
+    public List<Reservation> getAllReservationsForHotelStartingOnDate(Integer hotelId, Date date) {
+        Date dayBeginning = DateUtils.getDayBeginning(date);
+        Date dayEnding = DateUtils.getDayEnding(date);
+
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("SELECT RE FROM Reservation AS RE, Room AS RO WHERE (RE.startDate BETWEEN :dayBeginning AND :dayEnding) AND RE.room.roomId = RO.roomId AND RO.hotel.hotelId = :hotelId");
+        query.setParameter("hotelId", hotelId);
+        query.setParameter("dayBeginning", dayBeginning);
+        query.setParameter("dayEnding", dayEnding);
+        List<Reservation> reservations = query.list();
+        return reservations;
+    }
+
+    @Override
+    public List<Reservation> getAllReservationsForHotelEndingOnDate(Integer hotelId, Date date) {
+        Date dayBeginning = DateUtils.getDayBeginning(date);
+        Date dayEnding = DateUtils.getDayEnding(date);
+
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("SELECT RE FROM Reservation AS RE, Room AS RO WHERE (RE.endDate BETWEEN :dayBeginning AND :dayEnding) AND RE.room.roomId = RO.roomId AND RO.hotel.hotelId = :hotelId");
+        query.setParameter("hotelId", hotelId);
+        query.setParameter("dayBeginning", dayBeginning);
+        query.setParameter("dayEnding", dayEnding);
         List<Reservation> reservations = query.list();
         return reservations;
     }
