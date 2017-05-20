@@ -56,4 +56,5 @@ public class ReservationDAOImpl implements ReservationDAO {
         List<Reservation> reservations = query.list();
         return reservations;
     }
+
 }

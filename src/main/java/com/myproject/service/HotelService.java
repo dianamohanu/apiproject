@@ -23,7 +23,7 @@ public class HotelService {
         return hotels;
     }
 
-    public HotelDTO hotelPopulator(Hotel hotel) {
+    private HotelDTO hotelPopulator(Hotel hotel) {
         HotelDTO hotelDTO = new HotelDTO();
         if (hotel != null) {
             hotelDTO.setHotelId(hotel.getHotelId());
