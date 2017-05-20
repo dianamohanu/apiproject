@@ -32,7 +32,7 @@ public class RoomController {
 
     @RequestMapping(value = "/getAvailableRooms", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
-    public List<RoomDTO> getAvailableRoom(HttpServletResponse response, Principal principal, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) {
+    public List<RoomDTO> getAvailableRoom(HttpServletResponse response, Principal principal, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity) {
         List<RoomDTO> rooms = new ArrayList<>();
 
         if (!StringUtils.isEmpty(startDate) && !StringUtils.isEmpty(endDate)) {
@@ -55,7 +55,7 @@ public class RoomController {
                 e.printStackTrace();
             }
 
-            rooms = roomService.getAvailableRooms(hotelId, javaStartDate, javaEndDate);
+            rooms = roomService.getAvailableRooms(hotelId, javaStartDate, javaEndDate, capacity);
             if (rooms.size() == 0) {
                 response.setStatus(404);
             } else {

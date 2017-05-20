@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RoomDAO {
 
-    List<Room> getAvailableRooms(Integer hotelId, Date startDate, Date endDate);
+    List<Room> getAvailableRooms(Integer hotelId, Date startDate, Date endDate, Integer capacity);
 
 }

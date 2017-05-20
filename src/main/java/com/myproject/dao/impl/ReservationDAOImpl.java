@@ -1,7 +1,9 @@
 package com.myproject.dao.impl;
 
 import com.myproject.dao.ReservationDAO;
+import com.myproject.domain.Client;
 import com.myproject.domain.Reservation;
+import com.myproject.domain.Room;
 import com.myproject.util.DateUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -55,6 +57,19 @@ public class ReservationDAOImpl implements ReservationDAO {
         query.setParameter("dayEnding", dayEnding);
         List<Reservation> reservations = query.list();
         return reservations;
+    }
+
+    @Override
+    public void makeReservation(Date startDate, Date endDate, Client client, Room room) {
+        Session session = sessionFactory.getCurrentSession();
+
+        Reservation reservation = new Reservation();
+        reservation.setStartDate(startDate);
+        reservation.setEndDate(endDate);
+        reservation.setClient(client);
+        reservation.setRoom(room);
+
+        session.save(reservation);
     }
 
 }

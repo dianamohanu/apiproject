@@ -6,13 +6,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Client {
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String firstName;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String lastName;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String phoneNumber;
 
     public String getFirstName() {

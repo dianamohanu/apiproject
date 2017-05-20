@@ -16,9 +16,9 @@ public class RoomService {
     @Autowired
     private RoomDAO roomDAO;
 
-    public List<RoomDTO> getAvailableRooms(Integer hotelId, Date startDate, Date endDate) {
+    public List<RoomDTO> getAvailableRooms(Integer hotelId, Date startDate, Date endDate, Integer capacity) {
         List<RoomDTO> rooms = new ArrayList<>();
-        for (Room r : roomDAO.getAvailableRooms(hotelId, startDate, endDate)) {
+        for (Room r : roomDAO.getAvailableRooms(hotelId, startDate, endDate, capacity)) {
             rooms.add(roomPopulator(r));
         }
         return rooms;
