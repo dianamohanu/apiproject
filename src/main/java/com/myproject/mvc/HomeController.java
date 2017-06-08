@@ -20,4 +20,20 @@ public class HomeController
 		return "backoffice";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginBackofficeUser(Model model) {
+		return "loginManager";
+	}
+
+	@RequestMapping(value = "/loginFailed", method = RequestMethod.GET)
+	public String loginBackofficeFailed(Model model) {
+		model.addAttribute("error", "true");
+
+		return "loginManager";
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutBackoffice(Model model) {
+		return "logoutManager";
+	}
 }

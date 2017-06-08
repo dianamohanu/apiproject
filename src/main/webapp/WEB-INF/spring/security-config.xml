@@ -9,6 +9,8 @@
 
     <http auto-config="true">
         <intercept-url pattern="/backoffice/**" access="ROLE_USER"/>
+        <form-login login-page="/login" authentication-failure-url="/loginFailed" default-target-url="/backoffice/" always-use-default-target="true" />
+        <logout logout-success-url="/logout"/>
     </http>
 
     <authentication-manager>
