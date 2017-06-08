@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
-        <title>MANAGER CONSOLE</title>
+        <title>MANAGEMENT CONSOLE</title>
 
         <c:url var="loginLogoutStyle" value="/resources/style/loginLogout.css"/>
         <link rel="stylesheet" type="text/css" href="${loginLogoutStyle}">
