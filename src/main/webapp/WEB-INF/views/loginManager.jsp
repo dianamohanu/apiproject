@@ -19,13 +19,6 @@
     <div class="col-md-1"></div>
 
     <div class="col-md-10">
-        <c:if test="${not empty error}">
-            <div class="errorblock">
-                Your login was unsuccessful. <br/>
-                Cause: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message }
-            </div>
-        </c:if>
-
         <img class="center-block" src="${managerLoginImage}">
 
         <form action="j_spring_security_check" name="f" method="post">
@@ -43,6 +36,13 @@
                 <input type="reset" class="btn btn-info" name="Reset">
             </div>
         </form>
+
+        <c:if test="${not empty error}">
+            <div class="errorblock">
+                Your login was unsuccessful. <br/>
+                Cause: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message }
+            </div>
+        </c:if>
     </div>
 
     <div class="col-md-1"></div>
