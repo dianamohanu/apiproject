@@ -12,14 +12,15 @@
 
 <div class="col-md-4"></div>
 
-<div class="col-md-4">
+<div class="col-md-4 jumbotron vertical-center" style="background-color: #008080;">
     <div class="col-md-1"></div>
 
     <div class="col-md-10">
         <img class="center-block" src="${managerLoginImage}">
 
         <h3 style="color: #ffffff" class="text-center">GOOD BYE!</h3>
-        <h4 style="color: #ffffff" class="text-center">You have been <mark>successfully logged out</mark>! Thanks for using our app.</h4>
+        <h4 style="color: #ffffff" class="text-center">You have been
+            <mark>successfully logged out</mark>! Thank you for using our app.</h4>
     </div>
 
     <div class="col-md-1"></div>

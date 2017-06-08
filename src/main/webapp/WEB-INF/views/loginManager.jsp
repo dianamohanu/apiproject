@@ -15,7 +15,7 @@
 
 <div class="col-md-4"></div>
 
-<div class="col-md-4">
+<div class="col-md-4 jumbotron vertical-center" style="background-color: #008080;">
     <div class="col-md-1"></div>
 
     <div class="col-md-10">
