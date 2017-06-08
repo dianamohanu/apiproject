@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-    ${allReservationsForHotel}
-    ${allReservationsForHotelEndingOnDate}
+${allReservationsForHotel}
+${allReservationsForHotelEndingOnDate}
 </body>
 </html>
