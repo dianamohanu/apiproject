@@ -12,7 +12,7 @@
     background: url("../images/managerLogin.png")  center no-repeat;
 }
 
-.mainbody {
-    padding-top: 50px;
-    height: auto;
+.logoutMessage {
+    color: #ffffff;
+    text-align: center;
 }

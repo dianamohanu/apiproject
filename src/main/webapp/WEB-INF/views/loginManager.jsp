@@ -8,14 +8,12 @@
 
     <c:url var="loginLogoutStyle" value="/resources/style/loginLogout.css"/>
     <link rel="stylesheet" type="text/css" href="${loginLogoutStyle}">
-
-    <c:url var="managerLoginImage" value="/resources/images/managerLogin.png"/>
 </head>
 
 <body style="background-color: #3e4e51;">
 <jsp:include page="bootstrapImports.jsp"/>
 
-<div class="container-fluid mainbody">
+<div class="container-fluid jumbotron" style="background-color: #3e4e51;">
     <div class="row">
         <div class="col-xs-2 col-sm-4 col-md-5 col-lg-5"></div>
         <div class="col-xs-8 col-sm-4 col-md-2 col-lg-2">
