@@ -34,6 +34,8 @@ public class HomeController
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutBackoffice(Model model) {
-		return "logoutManager";
+		model.addAttribute("isLogout", "true");
+
+		return "loginManager";
 	}
 }

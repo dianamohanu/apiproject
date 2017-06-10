@@ -12,7 +12,9 @@
     background: url("../images/managerLogin.png")  center no-repeat;
 }
 
-.logoutMessage {
-    color: #ffffff;
+.successfulLogout {
+    width: 100%;
     text-align: center;
+    padding-top: 10px;
+    color: #ffffff;
 }
