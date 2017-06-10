@@ -22,18 +22,18 @@
         <img src="${managerLoginImage}">
 
         <div class="center-block">
-        <form action="j_spring_security_check" name="f" method="post">
-            <div class="form-group">
-                <input type="text" name="j_username" value="" class="form-control" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <input input type="password" name="j_password" class="form-control" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-default" name="Submit" value="Submit">
-                <input type="reset" class="btn btn-default" name="Reset">
-            </div>
-        </form>
+            <form action="j_spring_security_check" name="f" method="post">
+                <div class="form-group">
+                    <input type="text" name="j_username" value="" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input input type="password" name="j_password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" name="Submit" value="Submit">
+                    <input type="reset" class="btn btn-default" name="Reset">
+                </div>
+            </form>
         </div>
 
         <c:if test="${not empty error}">

@@ -2,19 +2,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <jsp:include page="bootstrapImports.jsp"/>
+
     <c:url var="managerStyle" value="/resources/style/manager.css"/>
     <link rel="stylesheet" type="text/css" href="${managerStyle}">
 
+    <c:url var="logoImage" value="/resources/images/logo.png"/>
     <c:url var="logoutUrl" value="/j_spring_security_logout"/>
 </head>
 
 <body>
-<jsp:include page="bootstrapImports.jsp"/>
-
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-custom">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">LOGO image here</a>
+            <img src="${logoImage}" class="img-responsive" width="160px" height="70px">
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
