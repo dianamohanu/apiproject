@@ -5,7 +5,7 @@
     <jsp:include page="bootstrapImports.jsp"/>
 
     <c:url var="managerStyle" value="/resources/style/manager.css"/>
-    <link rel="stylesheet" type="text/css" href="${managerStyle}">
+    <link rel="stylesheet" type="text/css" href="${managerStyle}"/>
 
     <c:url var="logoImage" value="/resources/images/logo.png"/>
     <c:url var="logoutUrl" value="/j_spring_security_logout"/>

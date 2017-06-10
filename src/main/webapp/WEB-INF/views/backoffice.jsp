@@ -4,10 +4,13 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <html>
 <head>
-    <title></title>
-    <c:url var="getAllReservations" value="/backoffice/reservation/getAll"></c:url>
-    <c:url var="getAllStartingOnDate" value="/backoffice/reservation/getAllStartingOnDate"></c:url>
-    <c:url var="getAllEndingOnDate" value="/backoffice/reservation/getAllEndingOnDate"></c:url>
+    <title>HotelBook Management Console</title>
+    <c:url var="favicon" value="/resources/images/favicon.png"/>
+    <link rel="shortcut icon" href="${favicon}">
+
+    <c:url var="getAllReservations" value="/backoffice/reservation/getAll"/>
+    <c:url var="getAllStartingOnDate" value="/backoffice/reservation/getAllStartingOnDate"/>
+    <c:url var="getAllEndingOnDate" value="/backoffice/reservation/getAllEndingOnDate"/>
 </head>
 
 <body>
