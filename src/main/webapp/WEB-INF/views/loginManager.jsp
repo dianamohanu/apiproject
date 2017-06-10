@@ -6,12 +6,13 @@
     <c:url var="favicon" value="/resources/images/favicon.png"/>
     <link rel="shortcut icon" href="${favicon}">
 
+    <jsp:include page="bootstrapImports.jsp"/>
+
     <c:url var="loginLogoutStyle" value="/resources/style/loginLogout.css"/>
     <link rel="stylesheet" type="text/css" href="${loginLogoutStyle}">
 </head>
 
 <body style="background-color: #3e4e51;">
-<jsp:include page="bootstrapImports.jsp"/>
 
 <div class="container-fluid jumbotron" style="background-color: #3e4e51;">
     <div class="row">
@@ -23,7 +24,7 @@
 
                 <c:if test="${not empty isLogout}">
                     <div class="form-group">
-                        <label class="successfulLogout"><span class="glyphicon glyphicon-ok"></span>&nbsp;You have successfully logged out!</label>
+                        <label class="successfulLogout"><span class="glyphicon glyphicon-ok"></span>&nbsp;You have been successfully logged out!</label>
                     </div>
                 </c:if>
 
@@ -34,7 +35,7 @@
                     <input type="password" name="j_password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default" name="Submit" value="Submit">
+                    <input type="submit" class="btn btn-login" name="Submit" value="Submit">
                 </div>
             </form>
         </div>
