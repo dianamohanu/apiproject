@@ -21,7 +21,6 @@
             <div class="logo"></div>
 
             <form action="j_spring_security_check" name="f" method="post">
-
                 <c:if test="${not empty isLogout}">
                     <div class="form-group">
                         <label class="successfulLogout"><span class="glyphicon glyphicon-ok"></span>&nbsp;You have been successfully logged out!</label>

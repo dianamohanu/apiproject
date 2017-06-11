@@ -48,7 +48,6 @@ public class ReservationService {
     private ReservationDTO reservationPopulator(Reservation reservation) {
         ReservationDTO reservationDTO = new ReservationDTO();
         if (reservation != null) {
-            reservationDTO.setReservationId(reservation.getReservationId());
             reservationDTO.setStartDate(reservation.getStartDate());
             reservationDTO.setEndDate(reservation.getEndDate());
             reservationDTO.setClient(reservation.getClient());

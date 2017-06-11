@@ -1,7 +1,9 @@
 package com.myproject.mvc;
 
+import com.myproject.domain.dto.ReservationDTO;
 import com.myproject.service.ReservationService;
 import com.myproject.service.UserService;
+import com.myproject.util.ReservationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,18 @@ public class ReservationController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addReservationGetPage(Model model) {
+        model.addAttribute("reservationForm", new ReservationForm());
+
+        return "addReservationManager";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addReservationSuccess(Model model) {
+        return "addReservationManager";
+    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public String getAllReservationsForRestaurant(Principal principal, Model model) {

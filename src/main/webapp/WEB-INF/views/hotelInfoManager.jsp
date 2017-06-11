@@ -9,8 +9,9 @@
     <jsp:include page="bootstrapImports.jsp"/>
 </head>
 <body>
-    <jsp:include page="headerManager.jsp"/>
+<jsp:include page="headerManager.jsp"/>
 
+<div class="container">
     <p><strong>Name:</strong></p>
     <p>${hotelInfo.name}</p>
     <p><strong>Description:</strong></p>
@@ -36,5 +37,7 @@
     <p>${hotelInfo.roomFeatures}</p>
     <p><strong>Rooms:</strong></p>
     <p>${hotelInfo.roomsList}</p>
+</div>
+
 </body>
 </html>

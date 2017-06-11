@@ -6,21 +6,11 @@ import java.util.Date;
 
 public class ReservationDTO {
 
-    private Integer reservationId;
-
     private Date startDate;
 
     private Date endDate;
 
     private Client client;
-
-    public Integer getReservationId() {
-        return reservationId;
-    }
-
-    public void setReservationId(Integer reservationId) {
-        this.reservationId = reservationId;
-    }
 
     public Date getStartDate() {
         return startDate;
@@ -45,4 +35,5 @@ public class ReservationDTO {
     public void setClient(Client client) {
         this.client = client;
     }
+
 }
