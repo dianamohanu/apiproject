@@ -15,6 +15,9 @@ public class Client {
     @Column
     private String phoneNumber;
 
+    @Column
+    private String email;
+
     public String getFirstName() {
         return firstName;
     }
@@ -37,5 +40,13 @@ public class Client {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

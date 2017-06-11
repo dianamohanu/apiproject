@@ -29,6 +29,7 @@ public class RoomService {
         if (room != null) {
             roomDTO.setRoomId(room.getRoomId());
             roomDTO.setCapacity(room.getCapacity());
+            roomDTO.setPrice(room.getPricePerNight());
         }
         return roomDTO;
     }

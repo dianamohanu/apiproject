@@ -22,6 +22,9 @@ public class Room {
     @OneToMany(targetEntity = Reservation.class, mappedBy = "room", cascade = CascadeType.ALL)
     private List<Reservation> reservationsList;
 
+    @Embedded
+    private Price pricePerNight;
+
     public Integer getRoomId() {
         return roomId;
     }
@@ -52,5 +55,13 @@ public class Room {
 
     public void setReservationsList(List<Reservation> reservationsList) {
         this.reservationsList = reservationsList;
+    }
+
+    public Price getPricePerNight() {
+        return pricePerNight;
+    }
+
+    public void setPricePerNight(Price pricePerNight) {
+        this.pricePerNight = pricePerNight;
     }
 }

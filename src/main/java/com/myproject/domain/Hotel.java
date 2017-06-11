@@ -1,6 +1,7 @@
 package com.myproject.domain;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +27,27 @@ public class Hotel {
 
     @OneToMany(mappedBy = "hotel")
     private Set<User> users = new HashSet<User>();
+
+    @Column(nullable = false)
+    private String contactPhoneNumber;
+
+    @Column
+    private String description;
+
+    @Column
+    private Integer numberOfStars;
+
+    @Column
+    private Time checkInHours;
+
+    @Column
+    private Time checkOutHours;
+
+    @Column
+    private String hotelFeatures;
+
+    @Column
+    private String roomFeatures;
 
     public Integer getHotelId() {
         return hotelId;
@@ -65,6 +87,62 @@ public class Hotel {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getContactPhoneNumber() {
+        return contactPhoneNumber;
+    }
+
+    public void setContactPhoneNumber(String contactPhoneNumber) {
+        this.contactPhoneNumber = contactPhoneNumber;
+    }
+
+    public Integer getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(Integer numberOfStars) {
+        this.numberOfStars = numberOfStars;
+    }
+
+    public Time getCheckInHours() {
+        return checkInHours;
+    }
+
+    public void setCheckInHours(Time checkInHours) {
+        this.checkInHours = checkInHours;
+    }
+
+    public Time getCheckOutHours() {
+        return checkOutHours;
+    }
+
+    public void setCheckOutHours(Time checkOutHours) {
+        this.checkOutHours = checkOutHours;
+    }
+
+    public String getHotelFeatures() {
+        return hotelFeatures;
+    }
+
+    public void setHotelFeatures(String hotelFeatures) {
+        this.hotelFeatures = hotelFeatures;
+    }
+
+    public String getRoomFeatures() {
+        return roomFeatures;
+    }
+
+    public void setRoomFeatures(String roomFeatures) {
+        this.roomFeatures = roomFeatures;
     }
 }
 

@@ -35,7 +35,8 @@
                     <input type="password" name="j_password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-login" name="Submit" value="Submit">
+                    <input type="submit" class="btn btn-login" name="Submit" value="Login">
+                    <input type="reset" class="btn btn-login" name="Reset">
                 </div>
             </form>
         </div>

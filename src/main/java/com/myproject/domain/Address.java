@@ -6,22 +6,22 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address {
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String street;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private Integer number;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String city;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String region;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String country;
 
-    @Column(insertable = false, updatable = false)
+    @Column
     private String postalCode;
 
     public String getStreet() {

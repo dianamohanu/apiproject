@@ -7,4 +7,6 @@ import java.util.List;
 public interface HotelDAO {
 
     List<Hotel> getAllHotels();
+
+    Hotel getHotelInfo(Integer hotelId);
 }

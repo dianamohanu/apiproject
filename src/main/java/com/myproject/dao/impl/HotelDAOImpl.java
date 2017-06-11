@@ -2,6 +2,7 @@ package com.myproject.dao.impl;
 
 import com.myproject.dao.HotelDAO;
 import com.myproject.domain.Hotel;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,17 @@ public class HotelDAOImpl implements HotelDAO {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("FROM Hotel as H").list();
     }
+
+    @Override
+    public Hotel getHotelInfo(Integer hotelId) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Hotel as H WHERE H.hotelId = :id");
+        query.setParameter("id", hotelId);
+        List<Hotel> hotels = query.list();
+        if(hotels.size() > 0){
+            return hotels.get(0);
+        }
+        return null;
+    }
+
 }
