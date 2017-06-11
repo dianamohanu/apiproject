@@ -16,13 +16,13 @@
     width: 100%;
     text-align: center;
     padding-top: 10px;
-    color: #e6e6fa;
+    color: #ffffe6;
 }
 
 .btn-login {
     color: #3E4E51;
-    background-color: #E6E6FA;
-    border-color: #E6E6FA;
+    background-color: #ffffe6;
+    border-color: #ffffe6;
 }
 
 .btn-login:hover,
@@ -32,7 +32,7 @@
 .open .dropdown-toggle.btn-login {
     color: #3E4E51;
     background-color: #FFF;
-    border-color: #E6E6FA;
+    border-color: #ffffe6;
 }
 
 .btn-login:active,
@@ -56,11 +56,17 @@ fieldset[disabled] .btn-login:active,
 .btn-login.disabled.active,
 .btn-login[disabled].active,
 fieldset[disabled] .btn-login.active {
-    background-color: #E6E6FA;
-    border-color: #E6E6FA;
+    background-color: #ffffe6;
+    border-color: #ffffe6;
 }
 
 .btn-login .badge {
-    color: #E6E6FA;
+    color: #ffffe6;
     background-color: #3E4E51;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: #ffffe6;
+    box-shadow: 0 1px 1px #ffffe6 inset, 0 0 8px #ffffe6;
+    outline: 0 none;
 }

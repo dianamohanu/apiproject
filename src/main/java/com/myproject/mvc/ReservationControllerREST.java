@@ -25,13 +25,13 @@ public class ReservationControllerREST {
 
     @RequestMapping(value = "/makeReservation", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
-    public boolean makeReservation(HttpServletResponse response, @RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
+    public Integer makeReservation(HttpServletResponse response, @RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
                                     @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity,
                                     @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
                                     @RequestParam("phoneNumber") String phoneNumber, @RequestParam("email") String email) {
 
         if (!StringUtils.isEmpty(hotelId) && !StringUtils.isEmpty(startDate) && !StringUtils.isEmpty(endDate) &&
-                !StringUtils.isEmpty(capacity) && !StringUtils.isEmpty(phoneNumber)) {
+                !StringUtils.isEmpty(capacity) && !StringUtils.isEmpty(phoneNumber) && !StringUtils.isEmpty(email)) {
 
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -58,7 +58,7 @@ public class ReservationControllerREST {
             return reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, capacity, client);
         }
 
-        return false;
+        return 0;
     }
 
 }

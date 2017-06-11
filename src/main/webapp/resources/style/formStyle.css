@@ -13,7 +13,7 @@
 }
 
 .btn-save {
-    color: #E6E6FA;
+    color: #ffffe6;
     background-color: #3E4E51;
     border-color: #3E4E51;
 }
@@ -23,7 +23,7 @@
 .btn-save:active,
 .btn-save.active,
 .open .dropdown-toggle.btn-save {
-    color: #E6E6FA;
+    color: #ffffe6;
     background-color: #FFF;
     border-color: #3E4E51;
 }
@@ -55,5 +55,16 @@ fieldset[disabled] .btn-save.active {
 
 .btn-save .badge {
     color: #3E4E51;
-    background-color: #E6E6FA;
+    background-color: #ffffe6;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: #3E4E51;
+    box-shadow: 0 1px 1px #3E4E51 inset, 0 0 8px #3E4E51;
+    outline: 0 none;
+}
+
+p {
+    margin: 0!important;
+    padding: 0!important;
 }

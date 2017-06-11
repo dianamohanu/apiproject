@@ -23,7 +23,7 @@ public class RoomDAOImpl implements RoomDAO {
     public List<Room> getAvailableRooms(Integer hotelId, Date startDate, Date endDate, Integer capacity) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("select R from Room AS R " +
-                "where R.capacity = 2 and R.hotel.hotelId = 1 and R.roomId not in " +
+                "where R.capacity = :capacity and R.hotel.hotelId = :hotelId and R.roomId not in " +
                 "(select RE.roomId from Room as RE, Reservation as RES where RES.room.roomId = RE.roomId and RE.capacity = :capacity and RE.hotel.hotelId = :hotelId " +
                 "and ((RES.startDate BETWEEN :startDatePram AND :endDateParam) " +
                 "or (RES.endDate BETWEEN :startDatePram AND :endDateParam) " +

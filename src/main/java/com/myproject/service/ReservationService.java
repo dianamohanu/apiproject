@@ -34,15 +34,15 @@ public class ReservationService {
         return reservationDAO.getAllReservationsForHotelEndingOnDate(hotelId, date);
     }
 
-    public boolean makeReservation(Integer hotelId, Date startDate, Date endDate, Integer capacity, Client client) {
+    public Integer makeReservation(Integer hotelId, Date startDate, Date endDate, Integer capacity, Client client) {
         List<Room> availableRooms = roomDAO.getAvailableRooms(hotelId, startDate, endDate, capacity);
 
         if (CollectionUtils.isEmpty(availableRooms)) {
-            return false;
+            return 0;
         }
 
         reservationDAO.makeReservation(startDate, endDate, client, availableRooms.get(0));
-        return true;
+        return availableRooms.get(0).getRoomId();
     }
 
     private ReservationDTO reservationPopulator(Reservation reservation) {
