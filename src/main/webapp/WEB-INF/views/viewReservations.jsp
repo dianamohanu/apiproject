@@ -35,11 +35,12 @@
         <h5 style="color: #3E4E51"><strong>FILTERS: </strong></h5>
         <form:form class="form-inline" method="POST" action="${filtersURL}" commandName="filtersForm">
             <div class="form-group">
-                <form:label path="firstName">FIRST NAME:</form:label>
+                <form:label path="firstName" cssStyle="font-size: 12px">FIRST NAME:&nbsp;</form:label>
                 <form:input id="firstName" type="text" path="firstName" class="form-control"/>
             </div>
+            &nbsp;
             <div class="form-group">
-                <form:label path="lastName">LAST NAME:</form:label>
+                <form:label path="lastName" cssStyle="font-size: 12px">LAST NAME:&nbsp;</form:label>
                 <form:input id="lastName" type="text" path="lastName" class="form-control"/>
             </div>
 
@@ -56,6 +57,7 @@
                     <th>Room ID</th>
                     <th>Capacity</th>
                     <th>Client</th>
+                    <th></th>
                     </thead>
                     <tbody>
                     <c:forEach var="reservation" items="${reservations}" varStatus="loop">
@@ -84,6 +86,16 @@
                                     </tr>
                                     <tr>
                                         <td>${reservation.client.email}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table class="table">
+                                    <tr>
+                                        <td><a href="#" style="color: #3E4E51; font-size: 10px">Edit</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" style="color: #3E4E51; font-size: 10px">Delete</a></td>
                                     </tr>
                                 </table>
                             </td>
