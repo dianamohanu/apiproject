@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <jsp:include page="bootstrapImports.jsp"/>
@@ -28,6 +29,7 @@
             <li><a href="${addReservationURL}"><span class="glyphicon glyphicon-star"></span> Add Reservation</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" style="color: #eee8e8"><span class="glyphicon glyphicon-user"></span> Hi, <sec:authentication property="name"/>!</a></li>
             <li><a href="${logoutUrl}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
     </div>
