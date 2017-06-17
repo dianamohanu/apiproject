@@ -1,0 +1,32 @@
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #eee8e8;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #f6f3f3;
+}
+
+.table-condensed {
+    font-size: 12px;
+    color: #3E4E51;
+}
+
+.table-striped {
+    font-size: 10px;
+}
+
+th {
+    color: #3E4E51;
+    background-color: #d6d0d0;
+}
+
+/*for viewReservationspage*/
+.form-group {
+    color: #3E4E51;
+}
+
+.form-control {
+    height: 30px!important;
+    font-size: 12px!important;
+    color: #3E4E51!important;
+}

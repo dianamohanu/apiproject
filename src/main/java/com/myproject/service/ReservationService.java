@@ -5,10 +5,13 @@ import com.myproject.dao.RoomDAO;
 import com.myproject.domain.Client;
 import com.myproject.domain.Reservation;
 import com.myproject.domain.Room;
+import com.myproject.domain.dto.ReservationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,16 +24,43 @@ public class ReservationService {
     @Autowired
     private RoomDAO roomDAO;
 
-    public List<Reservation> getAllReservationsForHotel(Integer hotelId) {
-        return reservationDAO.getAllReservationsForHotel(hotelId);
+    public List<ReservationDTO> getAllReservationsForHotel(Integer hotelId) {
+        List<ReservationDTO> reservationsDTO = new ArrayList<>();
+
+        List<Reservation> reservations = reservationDAO.getAllReservationsForHotel(hotelId);
+        if (!CollectionUtils.isEmpty(reservations)) {
+            for (Reservation r : reservations) {
+                reservationsDTO.add(reservationPopulator(r));
+            }
+        }
+
+        return reservationsDTO;
     }
 
-    public List<Reservation> getAllReservationsForHotelStartingOnDate(Integer hotelId, Date date) {
-        return reservationDAO.getAllReservationsForHotelStartingOnDate(hotelId, date);
+    public List<ReservationDTO> getAllReservationsForHotelStartingOnDate(Integer hotelId, Date date) {
+        List<ReservationDTO> reservationsDTO = new ArrayList<>();
+
+        List<Reservation> reservations = reservationDAO.getAllReservationsForHotelStartingOnDate(hotelId, date);
+        if (!CollectionUtils.isEmpty(reservations)) {
+            for (Reservation r : reservations) {
+                reservationsDTO.add(reservationPopulator(r));
+            }
+        }
+
+        return reservationsDTO;
     }
 
-    public List<Reservation> getAllReservationsForHotelEndingOnDate(Integer hotelId, Date date) {
-        return reservationDAO.getAllReservationsForHotelEndingOnDate(hotelId, date);
+    public List<ReservationDTO> getAllReservationsForHotelEndingOnDate(Integer hotelId, Date date) {
+        List<ReservationDTO> reservationsDTO = new ArrayList<>();
+
+        List<Reservation> reservations = reservationDAO.getAllReservationsForHotelEndingOnDate(hotelId, date);
+        if (!CollectionUtils.isEmpty(reservations)) {
+            for (Reservation r : reservations) {
+                reservationsDTO.add(reservationPopulator(r));
+            }
+        }
+
+        return reservationsDTO;
     }
 
     public Integer makeReservation(Integer hotelId, Date startDate, Date endDate, Integer capacity, Client client) {
@@ -44,8 +74,31 @@ public class ReservationService {
         return availableRooms.get(0).getRoomId();
     }
 
-    public List<Reservation> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName) {
-        return reservationDAO.getAllReservationsForHotelByFilters(hotelId, firstName, lastName);
+    public List<ReservationDTO> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName) {
+        List<ReservationDTO> reservationsDTO = new ArrayList<>();
+
+        List<Reservation> reservations = reservationDAO.getAllReservationsForHotelByFilters(hotelId, firstName, lastName);
+        if (!CollectionUtils.isEmpty(reservations)) {
+            for (Reservation r : reservations) {
+                reservationsDTO.add(reservationPopulator(r));
+            }
+        }
+
+        return reservationsDTO;
     }
 
+    public ReservationDTO reservationPopulator(Reservation reservation) {
+        ReservationDTO reservationDTO = new ReservationDTO();
+        if (reservation != null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            reservationDTO.setReservationId(reservation.getReservationId());
+            reservationDTO.setStartDate(reservation.getStartDate());
+            reservationDTO.setEndDate(reservation.getEndDate());
+            reservationDTO.setClient(reservation.getClient());
+            reservationDTO.setRoom(reservation.getRoom());
+            reservationDTO.setStartDateFormatted(simpleDateFormat.format(reservation.getStartDate()));
+            reservationDTO.setEndDateFormatted(simpleDateFormat.format(reservation.getEndDate()));
+        }
+        return reservationDTO;
+    }
 }

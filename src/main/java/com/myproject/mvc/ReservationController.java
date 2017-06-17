@@ -92,6 +92,7 @@ public class ReservationController {
         String currentUser = principal.getName();
         Integer hotelId = userService.getHotelIdForUser(currentUser);
 
+        model.addAttribute("filtersForm", new FiltersForm());
         Date date = new Date();
         model.addAttribute("reservations", reservationService.getAllReservationsForHotelStartingOnDate(hotelId, date));
 
@@ -103,6 +104,7 @@ public class ReservationController {
         String currentUser = principal.getName();
         Integer hotelId = userService.getHotelIdForUser(currentUser);
 
+        model.addAttribute("filtersForm", new FiltersForm());
         Date date = new Date();
         model.addAttribute("reservations", reservationService.getAllReservationsForHotelEndingOnDate(hotelId, date));
 
