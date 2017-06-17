@@ -16,6 +16,9 @@ public class Room {
     @JoinColumn(name="hotel_id", nullable = false)
     private Hotel hotel;
 
+    @Column
+    private Integer roomNumber;
+
     @Column(nullable = false)
     private Integer capacity;
 
@@ -63,5 +66,13 @@ public class Room {
 
     public void setPricePerNight(Price pricePerNight) {
         this.pricePerNight = pricePerNight;
+    }
+
+    public Integer getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(Integer roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }

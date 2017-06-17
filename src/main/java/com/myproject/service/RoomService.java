@@ -28,6 +28,7 @@ public class RoomService {
         RoomDTO roomDTO = new RoomDTO();
         if (room != null) {
             roomDTO.setRoomId(room.getRoomId());
+            roomDTO.setRoomNumber(room.getRoomNumber());
             roomDTO.setCapacity(room.getCapacity());
             roomDTO.setPrice(room.getPricePerNight());
         }

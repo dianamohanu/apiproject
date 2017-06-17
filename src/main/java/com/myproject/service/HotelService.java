@@ -31,7 +31,6 @@ public class HotelService {
     private HotelDTO hotelPopulator(Hotel hotel) {
         HotelDTO hotelDTO = new HotelDTO();
         if (hotel != null) {
-            hotelDTO.setHotelId(hotel.getHotelId());
             hotelDTO.setName(hotel.getName());
             hotelDTO.setAddress(hotel.getAddress());
             hotelDTO.setDescription(hotel.getDescription());

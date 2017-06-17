@@ -7,9 +7,6 @@ import java.sql.Time;
 import java.util.List;
 
 public class HotelDTO {
-
-    private Integer hotelId;
-
     private String name;
 
     private Address address;
@@ -29,14 +26,6 @@ public class HotelDTO {
     private List<String> roomFeatures;
 
     private List<Room> roomsList;
-
-    public Integer getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(Integer hotelId) {
-        this.hotelId = hotelId;
-    }
 
     public String getName() {
         return name;

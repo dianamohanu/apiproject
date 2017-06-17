@@ -6,6 +6,16 @@ public class RoomDTO {
 
     private Integer roomId;
 
+    private Integer roomNumber;
+
+    public Integer getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(Integer roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
     private Integer capacity;
 
     private Price price;

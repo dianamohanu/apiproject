@@ -29,6 +29,15 @@ public class HotelController {
         HotelDTO hotelInfo = hotelService.getHotelInfo(hotelId);
         model.addAttribute("hotelInfo", hotelInfo);
 
+        Integer numberOfStars = hotelInfo.getNumberOfStars();
+        int i = 0;
+        String html = "";
+        while (i < numberOfStars) {
+            html += "<span class=\"glyphicon glyphicon-star\"></span> ";
+            i++;
+        }
+        model.addAttribute("stars", html);
+
         return "hotelInfoManager";
     }
 
