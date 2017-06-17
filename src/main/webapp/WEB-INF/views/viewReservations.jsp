@@ -26,11 +26,13 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h4 style="color: #3E4E51">RESERVATIONS</h4>
+        <h5 style="color: #3E4E51"><strong>VIEW: </strong>
+            <a href="${getAll}" style="color: #3E4E51;">All</a> |
+            <a href="${getAllStartingToday}" style="color: #3E4E51;">All Starting Today</a> |
+            <a href="${getAllEndingToday}" style="color: #3E4E51;">All Ending Today</a>
+        </h5>
 
-        <h5 style="color: #3E4E51"><strong>VIEW: </strong></h5>
-        <a href="${getAll}">All</a>
-        <a href="${getAllStartingToday}">All Starting Today</a>
-        <a href="${getAllEndingToday}">All Ending Today</a>
+        <hr>
 
         <h5 style="color: #3E4E51"><strong>FILTERS: </strong></h5>
         <form:form class="form-inline" method="POST" action="${filtersURL}" commandName="filtersForm">
@@ -46,6 +48,8 @@
 
             <input type="submit" class="btn btn-save btn-sm" value="Search"/>
         </form:form>
+
+        <hr>
 
         <c:if test="${not empty reservations}">
             <div class="table-responsive">
@@ -91,9 +95,6 @@
                             </td>
                             <td>
                                 <table class="table">
-                                    <tr>
-                                        <td><a href="#" style="color: #3E4E51; font-size: 10px">Edit</a></td>
-                                    </tr>
                                     <tr>
                                         <td><a href="#" style="color: #3E4E51; font-size: 10px">Delete</a></td>
                                     </tr>

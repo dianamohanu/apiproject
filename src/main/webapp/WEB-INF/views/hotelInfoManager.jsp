@@ -106,7 +106,12 @@
                             <c:forEach var="room" items="${hotelInfo.roomsList}">
                                 <tr>
                                     <td>${room.roomNumber}</td>
-                                    <td>${room.capacity}</td>
+                                    <c:if test="${room.capacity == 1}">
+                                        <td>${room.capacity} person</td>
+                                    </c:if>
+                                    <c:if test="${room.capacity > 1}">
+                                        <td>${room.capacity} people</td>
+                                    </c:if>
                                     <td>${room.pricePerNight.priceInLei} lei</td>
                                     <td>${room.pricePerNight.priceInEuro} €</td>
                                     <td>${room.pricePerNight.priceInDollars} $</td>
