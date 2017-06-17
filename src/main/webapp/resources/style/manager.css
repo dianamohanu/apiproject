@@ -13,7 +13,7 @@
 /***Link Color Hover Statr***/
 
 .navbar.navbar-custom .navbar-nav > li > a:hover {
-    color: #ffffe6;
+    color: #eee8e8;
 }
 /***Link Background and Color Active State***/
 
@@ -21,6 +21,6 @@
 .navbar.navbar-custom .navbar-nav > .active > a,
 .navbar.navbar-custom .navbar-nav > .active > a:hover,
 .navbar.navbar-custom .navbar-nav > .active > a:focus {
-    background: #ffffe6;
+    background: #eee8e8;
     color: #3e4e51;
 }

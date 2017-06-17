@@ -13,7 +13,7 @@
 }
 
 .btn-save {
-    color: #ffffe6;
+    color: #eee8e8;
     background-color: #3E4E51;
     border-color: #3E4E51;
 }
@@ -23,7 +23,7 @@
 .btn-save:active,
 .btn-save.active,
 .open .dropdown-toggle.btn-save {
-    color: #ffffe6;
+    color: #eee8e8;
     background-color: #FFF;
     border-color: #3E4E51;
 }
@@ -55,7 +55,7 @@ fieldset[disabled] .btn-save.active {
 
 .btn-save .badge {
     color: #3E4E51;
-    background-color: #ffffe6;
+    background-color: #eee8e8;
 }
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {

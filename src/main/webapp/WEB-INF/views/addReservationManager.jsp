@@ -26,7 +26,7 @@
 <div class="container">
     <div class="col-md-3"></div>
 
-    <div class="col-md-4" style="background-color: #ffffe6">
+    <div class="col-md-4" style="background-color: #eee8e8">
         <h4 style="color: #3E4E51">ADD RESERVATION</h4>
 
         <form:form method="POST" action="${addReservationURL}" commandName="reservationForm">
@@ -78,6 +78,8 @@
                 <p style="color: #3E4E51">Last name: <strong>${reservationForm.lastName}</strong></p>
                 <p style="color: #3E4E51">Phone number: <strong>${reservationForm.phoneNumber}</strong></p>
                 <p style="color: #3E4E51">Email: <strong>${reservationForm.email}</strong></p>
+                <br>
+                <p style="color: #3E4E51">A confirmation email was sent to: <strong>${reservationForm.email}</strong></p>
             </c:if>
             <c:if test="${empty reservedRoom}">
                 <div class="errorblock">No room with capacity ${reservationForm.capacity} is available
@@ -91,6 +93,7 @@
     <div class="col-md-1"></div>
 
     <script type="application/javascript" src="${formsJS}"></script>
+</div>
 
 </body>
 </html>
