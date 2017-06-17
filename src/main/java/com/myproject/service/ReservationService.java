@@ -5,7 +5,6 @@ import com.myproject.dao.RoomDAO;
 import com.myproject.domain.Client;
 import com.myproject.domain.Reservation;
 import com.myproject.domain.Room;
-import com.myproject.domain.dto.ReservationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -45,13 +44,8 @@ public class ReservationService {
         return availableRooms.get(0).getRoomId();
     }
 
-    private ReservationDTO reservationPopulator(Reservation reservation) {
-        ReservationDTO reservationDTO = new ReservationDTO();
-        if (reservation != null) {
-            reservationDTO.setStartDate(reservation.getStartDate());
-            reservationDTO.setEndDate(reservation.getEndDate());
-            reservationDTO.setClient(reservation.getClient());
-        }
-        return reservationDTO;
+    public List<Reservation> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName) {
+        return reservationDAO.getAllReservationsForHotelByFilters(hotelId, firstName, lastName);
     }
+
 }

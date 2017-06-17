@@ -72,4 +72,16 @@ public class ReservationDAOImpl implements ReservationDAO {
         session.save(reservation);
     }
 
+    @Override
+    public List<Reservation> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("SELECT RE FROM Reservation AS RE, Room AS RO WHERE (RE.client.firstName = :firstName AND RE.client.lastName = :lastName) AND RE.room.roomId = RO.roomId AND RO.hotel.hotelId = :hotelId");
+        query.setParameter("hotelId", hotelId);
+        query.setParameter("firstName", firstName);
+        query.setParameter("lastName", lastName);
+        List<Reservation> reservations = query.list();
+        return reservations;
+    }
+
+
 }

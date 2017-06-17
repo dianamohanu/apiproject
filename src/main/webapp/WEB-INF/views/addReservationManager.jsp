@@ -11,8 +11,8 @@
 
     <c:url var="formStyle" value="/resources/style/formStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${formStyle}">
-    <c:url var="loginLogoutStyle" value="/resources/style/loginLogout.css"/>
-    <link rel="stylesheet" type="text/css" href="${loginLogoutStyle}">
+    <c:url var="formBtnStyle" value="/resources/style/formBtnStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
 
     <c:url var="addReservationURL" value="/backoffice/reservation/add"/>
 </head>
@@ -27,7 +27,7 @@
 
         <form:form method="POST" action="${addReservationURL}" commandName="reservationForm">
             <div class="row">
-                <div class="form-group col-xs-6 ">
+                <div class="form-group col-xs-6">
                     <form:label path="startDate">START DATE:</form:label>
                     <form:input id="startDate" type="date" path="startDate" class="form-control"/>
                 </div>

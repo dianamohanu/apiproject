@@ -1,0 +1,56 @@
+.btn-save {
+    color: #eee8e8;
+    background-color: #3E4E51;
+    border-color: #3E4E51;
+}
+
+.btn-save:hover,
+.btn-save:focus,
+.btn-save:active,
+.btn-save.active,
+.open .dropdown-toggle.btn-save {
+    color: #eee8e8;
+    background-color: #FFF;
+    border-color: #3E4E51;
+}
+
+.btn-save:active,
+.btn-save.active,
+.open .dropdown-toggle.btn-save {
+    background-image: none;
+}
+
+.btn-save.disabled,
+.btn-save[disabled],
+fieldset[disabled] .btn-save,
+.btn-save.disabled:hover,
+.btn-save[disabled]:hover,
+fieldset[disabled] .btn-save:hover,
+.btn-save.disabled:focus,
+.btn-save[disabled]:focus,
+fieldset[disabled] .btn-save:focus,
+.btn-save.disabled:active,
+.btn-save[disabled]:active,
+fieldset[disabled] .btn-save:active,
+.btn-save.disabled.active,
+.btn-save[disabled].active,
+fieldset[disabled] .btn-save.active {
+    background-color: #3E4E51;
+    border-color: #3E4E51;
+}
+
+.btn-save .badge {
+    color: #3E4E51;
+    background-color: #eee8e8;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: #3E4E51;
+    box-shadow: 0 1px 1px #3E4E51 inset, 0 0 8px #3E4E51;
+    outline: 0 none;
+}
+
+p {
+    margin: 0!important;
+    padding: 0!important;
+}

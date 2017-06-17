@@ -1,9 +1,9 @@
 package com.myproject.mvc;
 
 import com.myproject.domain.Client;
-import com.myproject.domain.dto.ReservationDTO;
 import com.myproject.service.ReservationService;
 import com.myproject.service.UserService;
+import com.myproject.util.FiltersForm;
 import com.myproject.util.ReservationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,6 +81,7 @@ public class ReservationController {
         String currentUser = principal.getName();
         Integer hotelId = userService.getHotelIdForUser(currentUser);
 
+        model.addAttribute("filtersForm", new FiltersForm());
         model.addAttribute("reservations", reservationService.getAllReservationsForHotel(hotelId));
 
         return "viewReservations";
@@ -104,6 +105,19 @@ public class ReservationController {
 
         Date date = new Date();
         model.addAttribute("reservations", reservationService.getAllReservationsForHotelEndingOnDate(hotelId, date));
+
+        return "viewReservations";
+    }
+
+
+    @RequestMapping(value = "/getAllByFilters", method = RequestMethod.POST)
+    public String getAllByFiltersForRestaurant(Principal principal, @ModelAttribute("filtersForm") FiltersForm filtersForm, Model model) {
+        String currentUser = principal.getName();
+        Integer hotelId = userService.getHotelIdForUser(currentUser);
+
+        String firstName = filtersForm.getFirstName();
+        String lastName = filtersForm.getLastName();
+        model.addAttribute("reservations", reservationService.getAllReservationsForHotelByFilters(hotelId, firstName, lastName));
 
         return "viewReservations";
     }

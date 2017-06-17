@@ -7,9 +7,13 @@
     <c:url var="favicon" value="/resources/images/favicon.png"/>
     <link rel="shortcut icon" href="${favicon}">
 
+    <c:url var="formBtnStyle" value="/resources/style/formBtnStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
+
     <c:url var="getAll" value="/backoffice/reservation/getAll"/>
     <c:url var="getAllStartingToday" value="/backoffice/reservation/getAllStartingToday"/>
     <c:url var="getAllEndingToday" value="/backoffice/reservation/getAllEndingToday"/>
+    <c:url var="filtersURL" value="/backoffice/reservation/getAllByFilters"/>
 
     <jsp:include page="bootstrapImports.jsp"/>
 </head>
@@ -25,8 +29,18 @@
     <a href="${getAllEndingToday}">All Ending Today</a>
 
     <h5 style="color: #3E4E51"><strong>FILTERS: </strong></h5>
+    <form:form class="form-inline" method="POST" action="${filtersURL}" commandName="filtersForm">
+        <div class="form-group">
+            <form:label path="firstName">FIRST NAME:</form:label>
+            <form:input id="firstName" type="text" path="firstName" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <form:label path="lastName">LAST NAME:</form:label>
+            <form:input id="lastName" type="text" path="lastName" class="form-control"/>
+        </div>
 
-    <br>
+        <input type="submit" class="btn btn-save" value="Search"/>
+    </form:form>
 
     <c:forEach var="reservation" items="${reservations}" varStatus="loop">
         <p>
