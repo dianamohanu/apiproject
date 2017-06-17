@@ -15,12 +15,8 @@
     <link rel="stylesheet" type="text/css" href="${loginLogoutStyle}">
 
     <c:url var="addReservationURL" value="/backoffice/reservation/add"/>
-
-    <%--<c:url var="backgroundImage" value="/resources/images/backgroundImg.jpg"/>--%>
-
-    <c:url var="formsJS" value="/resources/js/forms.js"/>
 </head>
-<body background="${backgroundImage}">
+<body>
 <jsp:include page="headerManager.jsp"/>
 
 <div class="container">
@@ -79,7 +75,8 @@
                 <p style="color: #3E4E51">Phone number: <strong>${reservationForm.phoneNumber}</strong></p>
                 <p style="color: #3E4E51">Email: <strong>${reservationForm.email}</strong></p>
                 <br>
-                <p style="color: #3E4E51">A confirmation email was sent to: <strong>${reservationForm.email}</strong></p>
+                <p style="color: #3E4E51">A confirmation email was sent to: <strong>${reservationForm.email}</strong>
+                </p>
             </c:if>
             <c:if test="${empty reservedRoom}">
                 <div class="errorblock">No room with capacity ${reservationForm.capacity} is available
@@ -91,9 +88,9 @@
     </div>
 
     <div class="col-md-1"></div>
-
-    <script type="application/javascript" src="${formsJS}"></script>
 </div>
+
+<script type="application/javascript" src="${formsJS}"></script>
 
 </body>
 </html>

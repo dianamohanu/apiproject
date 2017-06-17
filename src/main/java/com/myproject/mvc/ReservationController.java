@@ -77,11 +77,33 @@ public class ReservationController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public String getAllReservationsForRestaurant(Principal principal, Model model) {
+    public String getAllForRestaurant(Principal principal, Model model) {
         String currentUser = principal.getName();
         Integer hotelId = userService.getHotelIdForUser(currentUser);
 
-        model.addAttribute("allReservationsForHotel", reservationService.getAllReservationsForHotel(hotelId));
+        model.addAttribute("reservations", reservationService.getAllReservationsForHotel(hotelId));
+
+        return "viewReservations";
+    }
+
+    @RequestMapping(value = "/getAllStartingToday", method = RequestMethod.GET)
+    public String getAllStartingTodayForRestaurant(Principal principal, Model model) {
+        String currentUser = principal.getName();
+        Integer hotelId = userService.getHotelIdForUser(currentUser);
+
+        Date date = new Date();
+        model.addAttribute("reservations", reservationService.getAllReservationsForHotelStartingOnDate(hotelId, date));
+
+        return "viewReservations";
+    }
+
+    @RequestMapping(value = "/getAllEndingToday", method = RequestMethod.GET)
+    public String getAllEndingTodayForRestaurant(Principal principal, Model model) {
+        String currentUser = principal.getName();
+        Integer hotelId = userService.getHotelIdForUser(currentUser);
+
+        Date date = new Date();
+        model.addAttribute("reservations", reservationService.getAllReservationsForHotelEndingOnDate(hotelId, date));
 
         return "viewReservations";
     }
