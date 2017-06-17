@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="${formStyle}">
     <c:url var="formBtnStyle" value="/resources/style/formBtnStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
+    <c:url var="formsJS" value="/resources/js/forms.js"/>
 
     <c:url var="addReservationURL" value="/backoffice/reservation/add"/>
 </head>
@@ -58,7 +59,7 @@
             </div>
 
             <input type="submit" class="btn btn-save" value="Save"/>
-            <input type="button" onclick="formReset();" class="btn btn-save" value="Reset">
+            <input type="button" onclick="resetAddPageForm();" class="btn btn-save" value="Reset">
         </form:form>
     </div>
 

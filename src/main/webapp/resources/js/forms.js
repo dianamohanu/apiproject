@@ -1,4 +1,4 @@
-function formReset()
+function resetAddPageForm()
 {
     document.getElementById("startDate").value = "";
     document.getElementById("endDate").value = "";
@@ -8,3 +8,5 @@ function formReset()
     document.getElementById("phoneNumber").value = "";
     document.getElementById("email").value = "";
 }
+
+$('input[type=submit]').tooltip();

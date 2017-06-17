@@ -7,17 +7,18 @@
     <c:url var="favicon" value="/resources/images/favicon.png"/>
     <link rel="shortcut icon" href="${favicon}">
 
+    <jsp:include page="bootstrapImports.jsp"/>
+
     <c:url var="formBtnStyle" value="/resources/style/formBtnStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
     <c:url var="tableStyle" value="/resources/style/tableStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${tableStyle}">
+    <c:url var="formsJS" value="/resources/js/forms.js"/>
 
     <c:url var="getAll" value="/backoffice/reservation/getAll"/>
     <c:url var="getAllStartingToday" value="/backoffice/reservation/getAllStartingToday"/>
     <c:url var="getAllEndingToday" value="/backoffice/reservation/getAllEndingToday"/>
     <c:url var="filtersURL" value="/backoffice/reservation/getAllByFilters"/>
-
-    <jsp:include page="bootstrapImports.jsp"/>
 </head>
 <body>
 <jsp:include page="headerManager.jsp"/>
@@ -37,13 +38,13 @@
         <h5 style="color: #3E4E51"><strong>FILTERS: </strong></h5>
         <form:form class="form-inline" method="POST" action="${filtersURL}" commandName="filtersForm">
             <div class="form-group">
-                <form:label path="firstName" cssStyle="font-size: 12px">FIRST NAME:&nbsp;</form:label>
-                <form:input id="firstName" type="text" path="firstName" class="form-control"/>
+                <%--<form:label path="firstName" cssStyle="font-size: 12px">FIRST NAME:&nbsp;</form:label>--%>
+                <form:input id="firstName" type="text" path="firstName" class="form-control" placeholder="First Name"/>
             </div>
             &nbsp;
             <div class="form-group">
-                <form:label path="lastName" cssStyle="font-size: 12px">LAST NAME:&nbsp;</form:label>
-                <form:input id="lastName" type="text" path="lastName" class="form-control"/>
+                <%--<form:label path="lastName" cssStyle="font-size: 12px">LAST NAME:&nbsp;</form:label>--%>
+                <form:input id="lastName" type="text" path="lastName" class="form-control" placeholder="Last Name"/>
             </div>
 
             <input type="submit" class="btn btn-save btn-sm" value="Search"/>
@@ -72,10 +73,10 @@
                             <td>${reservation.endDateFormatted}</td>
                             <td>${reservation.room.roomId}</td>
                             <c:if test="${reservation.room.capacity == 1}">
-                                <td>${reservation.room.capacity} person</td>
+                                <td>${reservation.room.capacity} adult</td>
                             </c:if>
                             <c:if test="${reservation.room.capacity > 1}">
-                                <td>${reservation.room.capacity} people</td>
+                                <td>${reservation.room.capacity} adults</td>
                             </c:if>
                             <td>
                                 <table class="table table-condensed table-striped table-bordered">
@@ -96,7 +97,8 @@
                             <td>
                                 <table class="table">
                                     <tr>
-                                        <td><a href="#" style="color: #3E4E51; font-size: 10px">Delete</a></td>
+                                        <td><a href="#" style="color: #3E4E51; font-size: 10px" data-toggle="tooltip"
+                                               title="Permanently delete this reservation!">Delete</a></td>
                                     </tr>
                                 </table>
                             </td>
@@ -114,6 +116,8 @@
     </div>
     <div class="col-md-2"></div>
 </div>
+
+<script type="application/javascript" src="${formsJS}"></script>
 
 </body>
 </html>

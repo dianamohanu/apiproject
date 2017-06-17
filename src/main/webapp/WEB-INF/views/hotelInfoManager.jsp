@@ -7,12 +7,12 @@
     <c:url var="favicon" value="/resources/images/favicon.png"/>
     <link rel="shortcut icon" href="${favicon}">
 
+    <jsp:include page="bootstrapImports.jsp"/>
+
     <c:url var="formBtnStyle" value="/resources/style/formBtnStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
     <c:url var="tableStyle" value="/resources/style/tableStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${tableStyle}">
-
-    <jsp:include page="bootstrapImports.jsp"/>
 </head>
 <body>
 <jsp:include page="headerManager.jsp"/>
@@ -107,10 +107,10 @@
                                 <tr>
                                     <td>${room.roomNumber}</td>
                                     <c:if test="${room.capacity == 1}">
-                                        <td>${room.capacity} person</td>
+                                        <td>${room.capacity} adult</td>
                                     </c:if>
                                     <c:if test="${room.capacity > 1}">
-                                        <td>${room.capacity} people</td>
+                                        <td>${room.capacity} adults</td>
                                     </c:if>
                                     <td>${room.pricePerNight.priceInLei} lei</td>
                                     <td>${room.pricePerNight.priceInEuro} €</td>
