@@ -15,6 +15,8 @@ public class HotelDTO {
 
     private String contactPhoneNumber;
 
+    private String email;
+
     private Integer numberOfStars;
 
     private Time checkInHours;
@@ -105,5 +107,13 @@ public class HotelDTO {
 
     public void setRoomsList(List<Room> roomsList) {
         this.roomsList = roomsList;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

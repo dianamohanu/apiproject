@@ -38,6 +38,10 @@
                     <td>${hotelInfo.contactPhoneNumber}</td>
                 </tr>
                 <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>${hotelInfo.email}</td>
+                </tr>
+                <tr>
                     <td><strong>Address Details:</strong></td>
                     <td>
                         <table class="table table-condensed">

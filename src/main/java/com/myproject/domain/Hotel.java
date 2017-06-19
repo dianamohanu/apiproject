@@ -32,6 +32,9 @@ public class Hotel {
     private String contactPhoneNumber;
 
     @Column
+    private String email;
+
+    @Column
     private String description;
 
     @Column
@@ -143,6 +146,14 @@ public class Hotel {
 
     public void setRoomFeatures(String roomFeatures) {
         this.roomFeatures = roomFeatures;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 

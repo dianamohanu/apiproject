@@ -15,9 +15,8 @@ public class HomeController
 	}
 
 	@RequestMapping(value = "/backoffice", method = RequestMethod.GET)
-	public String backofficeHome(Model model) {
-		model.addAttribute("dateForm", new DateForm());
-		return "backoffice";
+	public String backofficePage() {
+		return "redirect:/backoffice/reservation/getAll";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

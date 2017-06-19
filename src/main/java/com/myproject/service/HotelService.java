@@ -35,6 +35,7 @@ public class HotelService {
             hotelDTO.setAddress(hotel.getAddress());
             hotelDTO.setDescription(hotel.getDescription());
             hotelDTO.setContactPhoneNumber(hotel.getContactPhoneNumber());
+            hotelDTO.setEmail(hotel.getEmail());
             hotelDTO.setNumberOfStars(hotel.getNumberOfStars());
             hotelDTO.setCheckInHours(hotel.getCheckInHours());
             hotelDTO.setCheckOutHours(hotel.getCheckOutHours());
