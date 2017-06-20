@@ -25,6 +25,18 @@ public class HotelDAOImpl implements HotelDAO {
     }
 
     @Override
+    public List<Hotel> getHotelsForFilters(String city) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Hotel as H WHERE H.address.city = :city");
+        query.setParameter("city", city);
+        List<Hotel> hotels = query.list();
+        if(hotels.size() > 0){
+            return hotels;
+        }
+        return null;
+    }
+
+    @Override
     public Hotel getHotelInfo(Integer hotelId) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("FROM Hotel as H WHERE H.hotelId = :id");

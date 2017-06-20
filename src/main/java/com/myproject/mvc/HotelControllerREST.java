@@ -4,6 +4,7 @@ import com.myproject.domain.dto.HotelDTO;
 import com.myproject.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,15 +20,19 @@ public class HotelControllerREST {
     @Autowired
     private HotelService hotelService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+    @RequestMapping(value = "/allHotels", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
     public List<HotelDTO> getAllHotels(HttpServletResponse response) {
-        List<HotelDTO> hotels = hotelService.getAllHotels();
-        if (hotels.size() == 0) {
-            response.setStatus(404);
-        } else {
-            response.setStatus(200);
-        }
+        List<HotelDTO> hotels = hotelService.getAllHotelsForREST();
+        response.setStatus(200);
+        return hotels;
+    }
+
+    @RequestMapping(value = "/hotels/{city}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+    @ResponseBody
+    public List<HotelDTO> getHotelsForFilters(@PathVariable("city") String city, HttpServletResponse response) {
+        List<HotelDTO> hotels = hotelService.getHotelsForFiltersREST(city);
+        response.setStatus(200);
         return hotels;
     }
 }

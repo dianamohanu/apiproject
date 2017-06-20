@@ -59,7 +59,7 @@
                     <th>#nr</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Room ID</th>
+                    <th>Room Number</th>
                     <th>Capacity</th>
                     <th>Client</th>
                     <th></th>
@@ -71,7 +71,7 @@
 
                             <td>${reservation.startDateFormatted}</td>
                             <td>${reservation.endDateFormatted}</td>
-                            <td>${reservation.room.roomId}</td>
+                            <td>${reservation.room.roomNumber}</td>
                             <c:if test="${reservation.room.capacity == 1}">
                                 <td>${reservation.room.capacity} adult</td>
                             </c:if>
