@@ -41,6 +41,15 @@ public class HotelService {
         return hotels;
     }
 
+    public HotelDTO getHotelDetails(Integer hotelId) {
+        Hotel hotel = hotelDAO.getHotelInfo(hotelId);
+        HotelDTO hotelDTO = new HotelDTO();
+        if (hotel != null) {
+            hotelDTO = hotelPopulatorForREST(hotel);
+        }
+        return hotelDTO;
+    }
+
 //    ------------------------------------------- MANAGER -------------------------------------------
 
     public HotelDTO getHotelInfo(Integer hotelId) {
@@ -64,6 +73,9 @@ public class HotelService {
             hotelDTO.setRoomFeatures(HBStringUtils.splitStringOnSymbol(hotel.getRoomFeatures(), ";"));
             hotelDTO.setRoomsList(hotel.getRoomsList());
             hotelDTO.setMainImageURL(hotel.getMainImageURL());
+            hotelDTO.setHotelId(hotel.getHotelId());
+            hotelDTO.setBuiltYear(hotel.getBuiltYear());
+            hotelDTO.setNumberOfFloors(hotel.getNumberOfFloors());
         }
         return hotelDTO;
     }
@@ -81,6 +93,9 @@ public class HotelService {
             hotelDTO.setCheckOutHours(hotel.getCheckOutHours());
             hotelDTO.setHotelFeatures(HBStringUtils.splitStringOnSymbol(hotel.getHotelFeatures(), ";"));
             hotelDTO.setRoomFeatures(HBStringUtils.splitStringOnSymbol(hotel.getRoomFeatures(), ";"));
+            hotelDTO.setHotelId(hotel.getHotelId());
+            hotelDTO.setBuiltYear(hotel.getBuiltYear());
+            hotelDTO.setNumberOfFloors(hotel.getNumberOfFloors());
         }
         return hotelDTO;
     }

@@ -28,20 +28,8 @@
             <table class="table table-condensed">
                 <tbody>
                 <tr>
-                    <td><strong>Name:</strong></td>
+                    <td class="col-md-3"><strong>Name:</strong></td>
                     <td>${hotelInfo.name}</td>
-                </tr>
-                <tr>
-                    <td><strong>Description:</strong></td>
-                    <td>${hotelInfo.description}</td>
-                </tr>
-                <tr>
-                    <td><strong>Contact phone number:</strong></td>
-                    <td>${hotelInfo.contactPhoneNumber}</td>
-                </tr>
-                <tr>
-                    <td><strong>Email:</strong></td>
-                    <td>${hotelInfo.email}</td>
                 </tr>
                 <tr>
                     <td><strong>Address Details:</strong></td>
@@ -77,8 +65,28 @@
                     </td>
                 </tr>
                 <tr>
+                    <td><strong>Contact phone number:</strong></td>
+                    <td>${hotelInfo.contactPhoneNumber}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>${hotelInfo.email}</td>
+                </tr>
+                <tr>
+                    <td><strong>Description:</strong></td>
+                    <td>${hotelInfo.description}</td>
+                </tr>
+                <tr>
                     <td><strong>Number of stars:</strong></td>
                     <td>${stars} </td>
+                </tr>
+                <tr>
+                    <td><strong>Built year:</strong></td>
+                    <td>${hotelInfo.builtYear} </td>
+                </tr>
+                <tr>
+                    <td><strong>Number of floors:</strong></td>
+                    <td>${hotelInfo.numberOfFloors} </td>
                 </tr>
                 <tr>
                     <td><strong>Check-in hours:</strong></td>
@@ -129,7 +137,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><strong>Image: </strong></td>
+                    <td><strong>Images: </strong></td>
                     <td><img class="img-responsive" src="${mainImage}"></td>
                 </tr>
                 </tbody>

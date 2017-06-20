@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -34,5 +33,13 @@ public class HotelControllerREST {
         List<HotelDTO> hotels = hotelService.getHotelsForFiltersREST(city);
         response.setStatus(200);
         return hotels;
+    }
+
+    @RequestMapping(value = "/hotel/{hotelId}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+    @ResponseBody
+    public HotelDTO getHotelDetails(@PathVariable("hotelId") Integer hotelId, HttpServletResponse response) {
+        HotelDTO hotel = hotelService.getHotelDetails(hotelId);
+        response.setStatus(200);
+        return hotel;
     }
 }

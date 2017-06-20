@@ -34,7 +34,8 @@ public class Hotel {
     @Column
     private String email;
 
-    @Column
+    @Lob
+    @Column( length = 100000 )
     private String description;
 
     @Column
@@ -54,6 +55,12 @@ public class Hotel {
 
     @Column
     private String mainImageURL;
+
+    @Column
+    private Integer builtYear;
+
+    @Column
+    private Integer numberOfFloors;
 
     public Integer getHotelId() {
         return hotelId;
@@ -165,6 +172,22 @@ public class Hotel {
 
     public void setMainImageURL(String mainImageURL) {
         this.mainImageURL = mainImageURL;
+    }
+
+    public Integer getBuiltYear() {
+        return builtYear;
+    }
+
+    public void setBuiltYear(Integer builtYear) {
+        this.builtYear = builtYear;
+    }
+
+    public Integer getNumberOfFloors() {
+        return numberOfFloors;
+    }
+
+    public void setNumberOfFloors(Integer numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 }
 

@@ -7,6 +7,8 @@ import java.sql.Time;
 import java.util.List;
 
 public class HotelDTO {
+    private Integer hotelId;
+
     private String name;
 
     private Address address;
@@ -30,6 +32,10 @@ public class HotelDTO {
     private List<Room> roomsList;
 
     private String mainImageURL;
+
+    private Integer builtYear;
+
+    private Integer numberOfFloors;
 
     public String getName() {
         return name;
@@ -125,5 +131,29 @@ public class HotelDTO {
 
     public void setMainImageURL(String mainImageURL) {
         this.mainImageURL = mainImageURL;
+    }
+
+    public Integer getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(Integer hotelId) {
+        this.hotelId = hotelId;
+    }
+
+    public Integer getBuiltYear() {
+        return builtYear;
+    }
+
+    public void setBuiltYear(Integer builtYear) {
+        this.builtYear = builtYear;
+    }
+
+    public Integer getNumberOfFloors() {
+        return numberOfFloors;
+    }
+
+    public void setNumberOfFloors(Integer numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 }

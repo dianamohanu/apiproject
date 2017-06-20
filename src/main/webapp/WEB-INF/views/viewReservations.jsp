@@ -96,7 +96,7 @@
                                 <table class="table">
                                     <tr>
                                         <td><a href="#" style="color: #3E4E51; font-size: 10px" data-toggle="tooltip"
-                                               title="Permanently delete this reservation!">Delete</a></td>
+                                               title="Permanently delete this reservation!">Cancel</a></td>
                                     </tr>
                                 </table>
                             </td>

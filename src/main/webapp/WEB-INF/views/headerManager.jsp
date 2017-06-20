@@ -20,7 +20,7 @@
 <nav class="navbar navbar-default navbar-custom">
     <div class="container-fluid">
         <div class="navbar-header">
-            <img src="${logoImage}" class="img-responsive" width="160px" height="70px">
+            <img src="${logoImage}" class="img-responsive" width="160" height="70">
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
