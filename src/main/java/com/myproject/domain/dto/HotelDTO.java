@@ -29,6 +29,8 @@ public class HotelDTO {
 
     private List<Room> roomsList;
 
+    private String mainImageURL;
+
     public String getName() {
         return name;
     }
@@ -115,5 +117,13 @@ public class HotelDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getMainImageURL() {
+        return mainImageURL;
+    }
+
+    public void setMainImageURL(String mainImageURL) {
+        this.mainImageURL = mainImageURL;
     }
 }

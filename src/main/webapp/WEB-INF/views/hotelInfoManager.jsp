@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
     <c:url var="tableStyle" value="/resources/style/tableStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${tableStyle}">
+
+    <c:url var="mainImage" value="${hotelInfo.mainImageURL}"/>
 </head>
 <body>
 <jsp:include page="headerManager.jsp"/>
@@ -125,6 +127,10 @@
                             </tbody>
                         </table>
                     </td>
+                </tr>
+                <tr>
+                    <td><strong>Image: </strong></td>
+                    <td><img class="img-responsive" src="${mainImage}"></td>
                 </tr>
                 </tbody>
             </table>

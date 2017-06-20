@@ -63,6 +63,7 @@ public class HotelService {
             hotelDTO.setHotelFeatures(HBStringUtils.splitStringOnSymbol(hotel.getHotelFeatures(), ";"));
             hotelDTO.setRoomFeatures(HBStringUtils.splitStringOnSymbol(hotel.getRoomFeatures(), ";"));
             hotelDTO.setRoomsList(hotel.getRoomsList());
+            hotelDTO.setMainImageURL(hotel.getMainImageURL());
         }
         return hotelDTO;
     }

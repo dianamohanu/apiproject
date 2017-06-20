@@ -38,12 +38,10 @@
         <h5 style="color: #3E4E51"><strong>FILTERS: </strong></h5>
         <form:form class="form-inline" method="POST" action="${filtersURL}" commandName="filtersForm">
             <div class="form-group">
-                <%--<form:label path="firstName" cssStyle="font-size: 12px">FIRST NAME:&nbsp;</form:label>--%>
                 <form:input id="firstName" type="text" path="firstName" class="form-control" placeholder="First Name"/>
             </div>
             &nbsp;
             <div class="form-group">
-                <%--<form:label path="lastName" cssStyle="font-size: 12px">LAST NAME:&nbsp;</form:label>--%>
                 <form:input id="lastName" type="text" path="lastName" class="form-control" placeholder="Last Name"/>
             </div>
 

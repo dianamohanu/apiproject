@@ -52,6 +52,9 @@ public class Hotel {
     @Column
     private String roomFeatures;
 
+    @Column
+    private String mainImageURL;
+
     public Integer getHotelId() {
         return hotelId;
     }
@@ -154,6 +157,14 @@ public class Hotel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getMainImageURL() {
+        return mainImageURL;
+    }
+
+    public void setMainImageURL(String mainImageURL) {
+        this.mainImageURL = mainImageURL;
     }
 }
 
