@@ -87,7 +87,11 @@ public class ReservationService {
         return reservationsDTO;
     }
 
-    public ReservationDTO reservationPopulator(Reservation reservation) {
+    public void cancelReservation(Integer reservationId) {
+        reservationDAO.cancelReservation(reservationId);
+    }
+
+    private ReservationDTO reservationPopulator(Reservation reservation) {
         ReservationDTO reservationDTO = new ReservationDTO();
         if (reservation != null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");

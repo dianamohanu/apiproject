@@ -121,45 +121,12 @@ public class ReservationController {
         return "viewReservations";
     }
 
-    @RequestMapping(value = "/getAllStartingOnDate", method = RequestMethod.GET)
-    public String getAllReservationsForHotelStartingOnDate(Principal principal, @RequestParam("date") String
-            date, Model model) {
-        if (!StringUtils.isEmpty(date)) {
-            String currentUser = principal.getName();
-            Integer hotelId = userService.getHotelIdForUser(currentUser);
+    @RequestMapping(value = "/cancelReservation", method = RequestMethod.GET)
+    public String cancelReservation(Principal principal, Model model, @RequestParam("reservationId") Integer reservationId) {
+        // TODO: check if principal has the right to remove
 
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date javaDate = null;
-            try {
-                javaDate = format.parse(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+        reservationService.cancelReservation(reservationId);
 
-            model.addAttribute("allReservationsForHotelStartingOnDate", reservationService.getAllReservationsForHotelStartingOnDate(hotelId, javaDate));
-        }
-
-        return "viewReservations";
-    }
-
-    @RequestMapping(value = "/getAllEndingOnDate", method = RequestMethod.GET)
-    public String getAllReservationsForHotelEndingOnDate(Principal principal, @RequestParam("date") String
-            date, Model model) {
-        if (!StringUtils.isEmpty(date)) {
-            String currentUser = principal.getName();
-            Integer hotelId = userService.getHotelIdForUser(currentUser);
-
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date javaDate = null;
-            try {
-                javaDate = format.parse(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            model.addAttribute("allReservationsForHotelEndingOnDate", reservationService.getAllReservationsForHotelEndingOnDate(hotelId, javaDate));
-        }
-
-        return "viewReservations";
+        return "redirect:/backoffice/reservation/getAll";
     }
 }

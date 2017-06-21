@@ -18,4 +18,6 @@ public interface ReservationDAO {
     void makeReservation(Date startDate, Date endDate, Client client, Room room);
 
     List<Reservation> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName);
+
+    void cancelReservation(Integer reservationId);
 }

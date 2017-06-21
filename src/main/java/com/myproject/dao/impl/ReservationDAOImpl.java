@@ -83,5 +83,12 @@ public class ReservationDAOImpl implements ReservationDAO {
         return reservations;
     }
 
+    @Override
+    public void cancelReservation(Integer reservationId) {
+        Session session=sessionFactory.getCurrentSession();
+        Query query=session.createQuery("DELETE FROM Reservation WHERE reservationId=:reservationId");
+        query.setParameter("reservationId", reservationId);
+        query.executeUpdate();
+    }
 
 }

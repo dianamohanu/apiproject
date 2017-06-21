@@ -19,6 +19,7 @@
     <c:url var="getAllStartingToday" value="/backoffice/reservation/getAllStartingToday"/>
     <c:url var="getAllEndingToday" value="/backoffice/reservation/getAllEndingToday"/>
     <c:url var="filtersURL" value="/backoffice/reservation/getAllByFilters"/>
+    <c:url var="cancelURL" value="/backoffice/reservation/cancelReservation"/>
 </head>
 <body>
 <jsp:include page="headerManager.jsp"/>
@@ -95,7 +96,7 @@
                             <td>
                                 <table class="table">
                                     <tr>
-                                        <td><a href="#" style="color: #3E4E51; font-size: 10px" data-toggle="tooltip"
+                                        <td><a href="${cancelURL}?reservationId=${reservation.reservationId}" style="color: #3E4E51; font-size: 10px" data-toggle="tooltip"
                                                title="Permanently delete this reservation!">Cancel</a></td>
                                     </tr>
                                 </table>
