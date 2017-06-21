@@ -12,6 +12,7 @@
                 <value>com.myproject.domain.Client</value>
                 <value>com.myproject.domain.Reservation</value>
                 <value>com.myproject.domain.Room</value>
+                <value>com.myproject.domain.Image</value>
                 <value>com.myproject.domain.Hotel</value>
                 <value>com.myproject.domain.User</value>
                 <value>com.myproject.domain.Authority</value>
@@ -21,7 +22,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
             </props>

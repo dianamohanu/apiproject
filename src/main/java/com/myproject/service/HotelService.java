@@ -2,6 +2,7 @@ package com.myproject.service;
 
 import com.myproject.dao.HotelDAO;
 import com.myproject.domain.Hotel;
+import com.myproject.domain.Image;
 import com.myproject.domain.dto.HotelDTO;
 import com.myproject.util.HBStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +73,10 @@ public class HotelService {
             hotelDTO.setHotelFeatures(HBStringUtils.splitStringOnSymbol(hotel.getHotelFeatures(), ";"));
             hotelDTO.setRoomFeatures(HBStringUtils.splitStringOnSymbol(hotel.getRoomFeatures(), ";"));
             hotelDTO.setRoomsList(hotel.getRoomsList());
-            hotelDTO.setMainImageURL(hotel.getMainImageURL());
+            List<Image> images = hotel.getImages();
+            if (!CollectionUtils.isEmpty(images)) {
+                hotelDTO.setMainImageURL(images.get(0).getImageURL());
+            }
             hotelDTO.setHotelId(hotel.getHotelId());
             hotelDTO.setBuiltYear(hotel.getBuiltYear());
             hotelDTO.setNumberOfFloors(hotel.getNumberOfFloors());

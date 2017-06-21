@@ -1,5 +1,8 @@
 package com.myproject.domain;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.HashSet;
@@ -53,8 +56,9 @@ public class Hotel {
     @Column
     private String roomFeatures;
 
-    @Column
-    private String mainImageURL;
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(targetEntity = Image.class, mappedBy = "hotelForImage")
+    private List<Image> images;
 
     @Column
     private Integer builtYear;
@@ -166,12 +170,12 @@ public class Hotel {
         this.email = email;
     }
 
-    public String getMainImageURL() {
-        return mainImageURL;
+    public List<Image> getImages() {
+        return images;
     }
 
-    public void setMainImageURL(String mainImageURL) {
-        this.mainImageURL = mainImageURL;
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
     public Integer getBuiltYear() {
