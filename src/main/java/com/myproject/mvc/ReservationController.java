@@ -28,14 +28,14 @@ public class ReservationController {
     private UserService userService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addReservationGetPage(Model model) {
+    public String makeReservation(Model model) {
         model.addAttribute("reservationForm", new ReservationForm());
 
         return "addReservationManager";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addReservationSuccess(Principal principal, @ModelAttribute("reservationForm") ReservationForm reservationForm, Model model) {
+    public String makeReservationSuccess(Principal principal, @ModelAttribute("reservationForm") ReservationForm reservationForm, Model model) {
         String currentUser = principal.getName();
         Integer hotelId = userService.getHotelIdForUser(currentUser);
 

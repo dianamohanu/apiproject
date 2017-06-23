@@ -42,7 +42,7 @@ public class HotelService {
         return hotels;
     }
 
-    public HotelDTO getHotelDetails(Integer hotelId) {
+    public HotelDTO getHotelDetailsForREST(Integer hotelId) {
         Hotel hotel = hotelDAO.getHotelInfo(hotelId);
         HotelDTO hotelDTO = new HotelDTO();
         if (hotel != null) {

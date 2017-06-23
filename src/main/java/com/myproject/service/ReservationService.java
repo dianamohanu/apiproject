@@ -63,17 +63,6 @@ public class ReservationService {
         return reservationsDTO;
     }
 
-    public Integer makeReservation(Integer hotelId, Date startDate, Date endDate, Integer capacity, Client client) {
-        List<Room> availableRooms = roomDAO.getAvailableRooms(hotelId, startDate, endDate, capacity);
-
-        if (CollectionUtils.isEmpty(availableRooms)) {
-            return 0;
-        }
-
-        reservationDAO.makeReservation(startDate, endDate, client, availableRooms.get(0));
-        return availableRooms.get(0).getRoomId();
-    }
-
     public List<ReservationDTO> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName) {
         List<ReservationDTO> reservationsDTO = new ArrayList<>();
 
@@ -85,6 +74,17 @@ public class ReservationService {
         }
 
         return reservationsDTO;
+    }
+
+    public Integer makeReservation(Integer hotelId, Date startDate, Date endDate, Integer capacity, Client client) {
+        List<Room> availableRooms = roomDAO.getAvailableRooms(hotelId, startDate, endDate, capacity);
+
+        if (CollectionUtils.isEmpty(availableRooms)) {
+            return 0;
+        }
+
+        reservationDAO.makeReservation(startDate, endDate, client, availableRooms.get(0));
+        return availableRooms.get(0).getRoomId();
     }
 
     public void cancelReservation(Integer reservationId) {

@@ -38,7 +38,7 @@ public class HotelControllerREST {
     @RequestMapping(value = "/hotel/{hotelId}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
     public HotelDTO getHotelDetails(@PathVariable("hotelId") Integer hotelId, HttpServletResponse response) {
-        HotelDTO hotel = hotelService.getHotelDetails(hotelId);
+        HotelDTO hotel = hotelService.getHotelDetailsForREST(hotelId);
         response.setStatus(200);
         return hotel;
     }

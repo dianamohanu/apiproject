@@ -20,7 +20,7 @@ public class HomeController
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginBackofficeUser(Model model) {
+	public String loginBackoffice(Model model) {
 		return "loginManager";
 	}
 
