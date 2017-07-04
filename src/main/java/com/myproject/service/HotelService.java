@@ -15,6 +15,8 @@ import java.util.List;
 @Service
 public class HotelService {
 
+    private static final String URI = "http://localhost:8080/HibernateAndSpring";
+
     @Autowired
     private HotelDAO hotelDAO;
 
@@ -100,6 +102,7 @@ public class HotelService {
             hotelDTO.setHotelId(hotel.getHotelId());
             hotelDTO.setBuiltYear(hotel.getBuiltYear());
             hotelDTO.setNumberOfFloors(hotel.getNumberOfFloors());
+            hotelDTO.setMainImageURL(URI + hotel.getImages().get(0).getImageURL());
         }
         return hotelDTO;
     }

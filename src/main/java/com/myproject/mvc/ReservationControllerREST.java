@@ -1,14 +1,12 @@
 package com.myproject.mvc;
 
 import com.myproject.domain.Client;
+import com.myproject.domain.dto.AvailabilityDTO;
 import com.myproject.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
@@ -25,9 +23,12 @@ public class ReservationControllerREST {
 
     @RequestMapping(value = "/roomAvailability", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
-    public boolean checkRoomAvailability(@RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
-                                         @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity) {
-        return false;
+    public AvailabilityDTO checkRoomAvailability(@RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
+                                                 @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity) {
+        AvailabilityDTO availabilityDTO = new AvailabilityDTO();
+        availabilityDTO.setAvailable(true);
+
+        return availabilityDTO;
     }
 
     @RequestMapping(value = "/reservation", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
