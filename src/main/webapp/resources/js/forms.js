@@ -1,5 +1,4 @@
-function resetAddPageForm()
-{
+function resetAddPageForm() {
     document.getElementById("startDate").value = "";
     document.getElementById("endDate").value = "";
     document.getElementById("capacity").value = "";

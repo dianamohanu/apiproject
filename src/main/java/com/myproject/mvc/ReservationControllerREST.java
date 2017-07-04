@@ -30,7 +30,7 @@ public class ReservationControllerREST {
         return false;
     }
 
-    @RequestMapping(value = "/makeReservation", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+    @RequestMapping(value = "/reservation", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
     public Integer makeReservation(@RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
                                    @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity,
