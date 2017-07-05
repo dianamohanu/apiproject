@@ -2,6 +2,8 @@ package com.myproject.util;
 
 public class ReservationForm {
 
+    private Integer hotelId;
+
     private String startDate;
 
     private String endDate;
@@ -15,6 +17,14 @@ public class ReservationForm {
     private String email;
 
     private Integer capacity;
+
+    public Integer getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(Integer hotelId) {
+        this.hotelId = hotelId;
+    }
 
     public String getStartDate() {
         return startDate;
