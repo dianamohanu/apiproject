@@ -1,6 +1,7 @@
 package com.myproject.mvc;
 
 import com.myproject.domain.Client;
+import com.myproject.mvc.validator.ReservationFormValidator;
 import com.myproject.service.ReservationService;
 import com.myproject.service.SendConfirmationMail;
 import com.myproject.service.UserService;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -31,6 +33,9 @@ public class ReservationController {
     @Autowired
     private SendConfirmationMail mailManager;
 
+    @Autowired
+    private ReservationFormValidator validator;
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String makeReservation(Model model) {
         model.addAttribute("reservationForm", new ReservationForm());
@@ -39,13 +44,16 @@ public class ReservationController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String makeReservationSuccess(Principal principal, @ModelAttribute("reservationForm") ReservationForm reservationForm, Model model) {
+    public String makeReservationSuccess(Principal principal, @ModelAttribute("reservationForm") ReservationForm reservationForm, Model model,
+                                         BindingResult bindingResult) {
         String currentUser = principal.getName();
         Integer hotelId = userService.getHotelIdForUser(currentUser);
 
-        if (!StringUtils.isEmpty(hotelId) && !StringUtils.isEmpty(reservationForm.getStartDate()) && !StringUtils.isEmpty(reservationForm.getEndDate()) &&
-                !StringUtils.isEmpty(reservationForm.getCapacity()) && !StringUtils.isEmpty(reservationForm.getPhoneNumber()) && !StringUtils.isEmpty(reservationForm.getEmail())) {
-
+        validator.validate(reservationForm, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "addReservationManager";
+        }
+        else {
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
             Date javaStartDate = null;

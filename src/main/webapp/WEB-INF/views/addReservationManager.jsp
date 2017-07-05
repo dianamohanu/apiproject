@@ -18,6 +18,12 @@
     <c:url var="formsJS" value="/resources/js/forms.js"/>
 
     <c:url var="addReservationURL" value="/backoffice/reservation/add"/>
+
+    <style>
+        .error {
+            color: #ff0000;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="headerManager.jsp"/>
@@ -33,31 +39,38 @@
                 <div class="form-group col-xs-6">
                     <form:label path="startDate">START DATE:</form:label>
                     <form:input id="startDate" type="date" path="startDate" class="form-control"/>
+                    <form:errors path="startDate" cssClass="error"/>
                 </div>
                 <div class="form-group col-xs-6">
                     <form:label path="endDate">END DATE:</form:label>
                     <form:input id="endDate" type="date" path="endDate" class="form-control"/>
+                    <form:errors path="endDate" cssClass="error"/>
                 </div>
             </div>
             <div class="form-group">
                 <form:label path="capacity">ROOM CAPACITY:</form:label>
                 <form:input id="capacity" type="number" path="capacity" class="form-control"/>
+                <form:errors path="capacity" cssClass="error"/>
             </div>
             <div class="form-group">
                 <form:label path="firstName">FIRST NAME:</form:label>
                 <form:input id="firstName" type="text" path="firstName" class="form-control"/>
+                <form:errors path="firstName" cssClass="error"/>
             </div>
             <div class="form-group">
                 <form:label path="lastName">LAST NAME:</form:label>
                 <form:input id="lastName" type="text" path="lastName" class="form-control"/>
+                <form:errors path="lastName" cssClass="error"/>
             </div>
             <div class="form-group">
                 <form:label path="phoneNumber">PHONE NUMBER:</form:label>
                 <form:input id="phoneNumber" type="text" path="phoneNumber" class="form-control"/>
+                <form:errors path="phoneNumber" cssClass="error"/>
             </div>
             <div class="form-group">
                 <form:label path="email">EMAIL:</form:label>
                 <form:input id="email" type="email" path="email" class="form-control"/>
+                <form:errors path="email" cssClass="error"/>
             </div>
 
             <input type="submit" class="btn btn-save" value="Save"/>
