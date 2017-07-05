@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.myproject.domain.Client;
 import com.myproject.domain.dto.AvailabilityDTO;
 import com.myproject.service.ReservationService;
+import com.myproject.service.SendConfirmationMail;
 import com.myproject.util.ReservationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -24,6 +25,9 @@ public class ReservationControllerREST {
 
     @Autowired
     private ReservationService reservationService;
+
+    @Autowired
+    private SendConfirmationMail mailManager;
 
     @RequestMapping(value = "/roomAvailability", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     @ResponseBody
@@ -97,7 +101,12 @@ public class ReservationControllerREST {
             client.setPhoneNumber(phoneNumber);
             client.setEmail(email);
 
-            return reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, capacity, client);
+            Integer reservedRoom = reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, capacity, client);
+            if (reservedRoom != 0) {
+                mailManager.sendConfirmationMail(reservationForm);
+            }
+
+            return reservedRoom;
         }
 
         return 0;
