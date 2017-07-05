@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="${formStyle}">
     <c:url var="formBtnStyle" value="/resources/style/formBtnStyle.css"/>
     <link rel="stylesheet" type="text/css" href="${formBtnStyle}">
+    <c:url var="loginLogoutStyle" value="/resources/style/loginLogout.css"/>
+    <link rel="stylesheet" type="text/css" href="${loginLogoutStyle}">
     <c:url var="formsJS" value="/resources/js/forms.js"/>
 
     <c:url var="addReservationURL" value="/backoffice/reservation/add"/>

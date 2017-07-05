@@ -87,6 +87,16 @@ public class ReservationService {
         return availableRooms.get(0).getRoomId();
     }
 
+    public boolean checkRoomAvailability(Integer hotelId, Date startDate, Date endDate, Integer capacity) {
+        List<Room> availableRooms = roomDAO.getAvailableRooms(hotelId, startDate, endDate, capacity);
+
+        if (CollectionUtils.isEmpty(availableRooms)) {
+            return false;
+        }
+
+        return true;
+    }
+
     public void cancelReservation(Integer reservationId) {
         reservationDAO.cancelReservation(reservationId);
     }

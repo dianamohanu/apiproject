@@ -26,7 +26,30 @@ public class ReservationControllerREST {
     public AvailabilityDTO checkRoomAvailability(@RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
                                                  @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity) {
         AvailabilityDTO availabilityDTO = new AvailabilityDTO();
-        availabilityDTO.setAvailable(true);
+
+        if (!StringUtils.isEmpty(hotelId) && !StringUtils.isEmpty(startDate) && !StringUtils.isEmpty(endDate) &&
+                !StringUtils.isEmpty(capacity)) {
+
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date javaStartDate = null;
+            try {
+                javaStartDate = format.parse(startDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Date javaEndDate = null;
+            try {
+                javaEndDate = format.parse(endDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            availabilityDTO.setAvailable(reservationService.checkRoomAvailability(hotelId, javaStartDate, javaEndDate, capacity));
+        } else {
+            availabilityDTO.setAvailable(false);
+        }
 
         return availabilityDTO;
     }
