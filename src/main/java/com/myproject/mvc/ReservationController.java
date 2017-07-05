@@ -2,6 +2,7 @@ package com.myproject.mvc;
 
 import com.myproject.domain.Client;
 import com.myproject.service.ReservationService;
+import com.myproject.service.SendConfirmationMail;
 import com.myproject.service.UserService;
 import com.myproject.util.FiltersForm;
 import com.myproject.util.ReservationForm;
@@ -26,6 +27,9 @@ public class ReservationController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private SendConfirmationMail mailManager;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String makeReservation(Model model) {
@@ -66,6 +70,7 @@ public class ReservationController {
 
             Integer reservedRoom = reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, reservationForm.getCapacity(), client);
             if (reservedRoom != 0) {
+                mailManager.sendConfirmationMail(reservationForm);
                 model.addAttribute("reservedRoom", reservedRoom);
             }
         }

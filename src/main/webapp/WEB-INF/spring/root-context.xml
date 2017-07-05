@@ -35,7 +35,7 @@
     </bean>
 
     <bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
-        <property name="subject" value="HotelBook Reservation Confirmation"/>
+        <property name="subject" value="HotelBook Confirmation"/>
     </bean>
 
     <bean id="orderManager" class="com.myproject.service.SendConfirmationMail">
