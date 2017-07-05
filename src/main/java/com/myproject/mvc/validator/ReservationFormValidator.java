@@ -26,8 +26,13 @@ public class ReservationFormValidator implements Validator {
 
         ReservationForm reservationForm = (ReservationForm) o;
 
-        if(reservationForm.getPhoneNumber().length() > 0 && reservationForm.getPhoneNumber().length() != 10) {
+        String phoneNumber = reservationForm.getPhoneNumber();
+        if(phoneNumber.length() > 0 && phoneNumber.length() != 10) {
             errors.rejectValue("phoneNumber","error.phoneNumber","Not a valid phone number!");
+        }
+        Integer capacity = reservationForm.getCapacity();
+        if (capacity != null && (capacity < 0 || capacity > 10)) {
+            errors.rejectValue("capacity", "error.capacity", "Invalid room capacity.");
         }
 
     }
