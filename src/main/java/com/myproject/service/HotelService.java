@@ -3,6 +3,7 @@ package com.myproject.service;
 import com.myproject.dao.HotelDAO;
 import com.myproject.domain.Hotel;
 import com.myproject.domain.Image;
+import com.myproject.domain.Room;
 import com.myproject.domain.dto.HotelDTO;
 import com.myproject.util.HBStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +103,21 @@ public class HotelService {
             hotelDTO.setHotelId(hotel.getHotelId());
             hotelDTO.setBuiltYear(hotel.getBuiltYear());
             hotelDTO.setNumberOfFloors(hotel.getNumberOfFloors());
-            hotelDTO.setMainImageURL(URI + hotel.getImages().get(0).getImageURL());
+            List<Image> images = hotel.getImages();
+            if (!CollectionUtils.isEmpty(images)) {
+                hotelDTO.setMainImageURL(URI + images.get(0).getImageURL());
+            }
+            List<Room> roomsList = hotel.getRoomsList();
+            if (!CollectionUtils.isEmpty(roomsList)) {
+                Double minimumPrice = roomsList.get(0).getPricePerNight().getPriceInEuro();
+                for (int i = 1; i < roomsList.size(); i++) {
+                    Room r = roomsList.get(i);
+                    if (r.getPricePerNight().getPriceInEuro() < minimumPrice) {
+                        minimumPrice = r.getPricePerNight().getPriceInEuro();
+                    }
+                }
+                hotelDTO.setMinimumPricePerNight(minimumPrice);
+            }
         }
         return hotelDTO;
     }

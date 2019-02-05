@@ -84,7 +84,7 @@ public class ReservationService {
         }
 
         reservationDAO.makeReservation(startDate, endDate, client, availableRooms.get(0));
-        return availableRooms.get(0).getRoomId();
+        return availableRooms.get(0).getRoomNumber();
     }
 
     public boolean checkRoomAvailability(Integer hotelId, Date startDate, Date endDate, Integer capacity) {

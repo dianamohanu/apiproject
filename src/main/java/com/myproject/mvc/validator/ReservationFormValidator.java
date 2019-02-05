@@ -32,7 +32,7 @@ public class ReservationFormValidator implements Validator {
         }
         Integer capacity = reservationForm.getCapacity();
         if (capacity != null && (capacity < 0 || capacity > 10)) {
-            errors.rejectValue("capacity", "error.capacity", "Invalid room capacity.");
+            errors.rejectValue("capacity", "error.capacity", "Invalid room capacity!");
         }
 
     }

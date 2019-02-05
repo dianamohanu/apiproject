@@ -39,7 +39,12 @@ public class HotelControllerREST {
     @ResponseBody
     public HotelDTO getHotelDetails(@PathVariable("hotelId") Integer hotelId, HttpServletResponse response) {
         HotelDTO hotel = hotelService.getHotelDetailsForREST(hotelId);
-        response.setStatus(200);
-        return hotel;
+        if (hotel != null) {
+            response.setStatus(200);
+            return hotel;
+        }
+
+        response.setStatus(404);
+        return null;
     }
 }

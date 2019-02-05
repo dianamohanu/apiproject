@@ -34,6 +34,7 @@ public class ReservationControllerREST {
     public AvailabilityDTO checkRoomAvailability(@RequestParam("hotelId") Integer hotelId, @RequestParam("startDate") String startDate,
                                                  @RequestParam("endDate") String endDate, @RequestParam("capacity") Integer capacity) {
         AvailabilityDTO availabilityDTO = new AvailabilityDTO();
+        Boolean available = false;
 
         if (!StringUtils.isEmpty(hotelId) && !StringUtils.isEmpty(startDate) && !StringUtils.isEmpty(endDate) &&
                 !StringUtils.isEmpty(capacity)) {
@@ -54,11 +55,15 @@ public class ReservationControllerREST {
                 e.printStackTrace();
             }
 
-            availabilityDTO.setAvailable(reservationService.checkRoomAvailability(hotelId, javaStartDate, javaEndDate, capacity));
-        } else {
-            availabilityDTO.setAvailable(false);
+            Date currentDate = new Date();
+            if (javaStartDate != null && javaEndDate != null) {
+                if (!javaEndDate.before(javaStartDate) && !javaEndDate.before(currentDate) && !javaStartDate.before(currentDate)) {
+                    available = reservationService.checkRoomAvailability(hotelId, javaStartDate, javaEndDate, capacity);
+                }
+            }
         }
 
+        availabilityDTO.setAvailable(available);
         return availabilityDTO;
     }
 
@@ -95,18 +100,23 @@ public class ReservationControllerREST {
                 e.printStackTrace();
             }
 
-            Client client = new Client();
-            client.setFirstName(firstName);
-            client.setLastName(lastName);
-            client.setPhoneNumber(phoneNumber);
-            client.setEmail(email);
+            Date currentDate = new Date();
+            if (javaStartDate != null && javaEndDate != null) {
+                if (!javaEndDate.before(javaStartDate) && !javaEndDate.before(currentDate) && !javaStartDate.before(currentDate)) {
+                    Client client = new Client();
+                    client.setFirstName(firstName);
+                    client.setLastName(lastName);
+                    client.setPhoneNumber(phoneNumber);
+                    client.setEmail(email);
 
-            Integer reservedRoom = reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, capacity, client);
-            if (reservedRoom != 0) {
-                mailManager.sendConfirmationMail(reservationForm);
+                    Integer reservedRoom = reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, capacity, client);
+                    if (reservedRoom != 0) {
+                        mailManager.sendConfirmationMail(reservationForm);
+                    }
+
+                    return reservedRoom;
+                }
             }
-
-            return reservedRoom;
         }
 
         return 0;

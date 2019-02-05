@@ -37,6 +37,16 @@ public class HotelDTO {
 
     private Integer numberOfFloors;
 
+    private Double minimumPricePerNight;
+
+    public Double getMinimumPricePerNight() {
+        return minimumPricePerNight;
+    }
+
+    public void setMinimumPricePerNight(Double minimumPricePerNight) {
+        this.minimumPricePerNight = minimumPricePerNight;
+    }
+
     public String getName() {
         return name;
     }

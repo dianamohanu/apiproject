@@ -1,6 +1,7 @@
 package com.myproject.mvc;
 
 import com.myproject.domain.Client;
+import com.myproject.domain.dto.ReservationDTO;
 import com.myproject.mvc.validator.ReservationFormValidator;
 import com.myproject.service.ReservationService;
 import com.myproject.service.SendConfirmationMail;
@@ -10,6 +11,7 @@ import com.myproject.util.ReservationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/backoffice/reservation")
@@ -70,16 +73,21 @@ public class ReservationController {
                 e.printStackTrace();
             }
 
-            Client client = new Client();
-            client.setFirstName(reservationForm.getFirstName());
-            client.setLastName(reservationForm.getLastName());
-            client.setPhoneNumber(reservationForm.getPhoneNumber());
-            client.setEmail(reservationForm.getEmail());
+            if (javaEndDate != null && javaStartDate != null) {
+                Date currentDate = new Date();
+                if (!javaEndDate.before(javaStartDate) && !javaEndDate.before(currentDate) && !javaStartDate.before(currentDate)) {
+                    Client client = new Client();
+                    client.setFirstName(reservationForm.getFirstName());
+                    client.setLastName(reservationForm.getLastName());
+                    client.setPhoneNumber(reservationForm.getPhoneNumber());
+                    client.setEmail(reservationForm.getEmail());
 
-            Integer reservedRoom = reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, reservationForm.getCapacity(), client);
-            if (reservedRoom != 0) {
-                mailManager.sendConfirmationMail(reservationForm);
-                model.addAttribute("reservedRoom", reservedRoom);
+                    Integer reservedRoom = reservationService.makeReservation(hotelId, javaStartDate, javaEndDate, reservationForm.getCapacity(), client);
+                    if (reservedRoom != 0) {
+                        mailManager.sendConfirmationMail(reservationForm);
+                        model.addAttribute("reservedRoom", reservedRoom);
+                    }
+                }
             }
         }
 
@@ -136,9 +144,17 @@ public class ReservationController {
 
     @RequestMapping(value = "/cancelReservation", method = RequestMethod.GET)
     public String cancelReservation(Principal principal, Model model, @RequestParam("reservationId") Integer reservationId) {
-        // TODO: check if principal has the right to remove
+        String currentUser = principal.getName();
+        Integer hotelId = userService.getHotelIdForUser(currentUser);
 
-        reservationService.cancelReservation(reservationId);
+        List<ReservationDTO> allReservationsForHotel = reservationService.getAllReservationsForHotel(hotelId);
+        if (!CollectionUtils.isEmpty(allReservationsForHotel)) {
+            for (ReservationDTO r : allReservationsForHotel) {
+                if (r.getReservationId().equals(reservationId)) {
+                    reservationService.cancelReservation(reservationId);
+                }
+            }
+        }
 
         return "redirect:/backoffice/reservation/getAll";
     }
