@@ -54,38 +54,7 @@ public class HotelService {
         return hotelDTO;
     }
 
-//    ------------------------------------------- MANAGER -------------------------------------------
-
-    public HotelDTO getHotelInfo(Integer hotelId) {
-        return hotelPopulator(hotelDAO.getHotelInfo(hotelId));
-    }
-
 //    ------------------------------------------- POPULATORS -------------------------------------------
-
-    private HotelDTO hotelPopulator(Hotel hotel) {
-        HotelDTO hotelDTO = new HotelDTO();
-        if (hotel != null) {
-            hotelDTO.setName(hotel.getName());
-            hotelDTO.setAddress(hotel.getAddress());
-            hotelDTO.setDescription(hotel.getDescription());
-            hotelDTO.setContactPhoneNumber(hotel.getContactPhoneNumber());
-            hotelDTO.setEmail(hotel.getEmail());
-            hotelDTO.setNumberOfStars(hotel.getNumberOfStars());
-            hotelDTO.setCheckInHours(hotel.getCheckInHours());
-            hotelDTO.setCheckOutHours(hotel.getCheckOutHours());
-            hotelDTO.setHotelFeatures(HBStringUtils.splitStringOnSymbol(hotel.getHotelFeatures(), ";"));
-            hotelDTO.setRoomFeatures(HBStringUtils.splitStringOnSymbol(hotel.getRoomFeatures(), ";"));
-            hotelDTO.setRoomsList(hotel.getRoomsList());
-            List<Image> images = hotel.getImages();
-            if (!CollectionUtils.isEmpty(images)) {
-                hotelDTO.setMainImageURL(images.get(0).getImageURL());
-            }
-            hotelDTO.setHotelId(hotel.getHotelId());
-            hotelDTO.setBuiltYear(hotel.getBuiltYear());
-            hotelDTO.setNumberOfFloors(hotel.getNumberOfFloors());
-        }
-        return hotelDTO;
-    }
 
     private HotelDTO hotelPopulatorForREST(Hotel hotel) {
         HotelDTO hotelDTO = new HotelDTO();

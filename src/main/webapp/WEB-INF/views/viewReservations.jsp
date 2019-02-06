@@ -15,10 +15,6 @@
     <link rel="stylesheet" type="text/css" href="${tableStyle}">
     <c:url var="formsJS" value="/resources/js/forms.js"/>
 
-    <c:url var="getAll" value="/backoffice/reservation/getAll"/>
-    <c:url var="getAllStartingToday" value="/backoffice/reservation/getAllStartingToday"/>
-    <c:url var="getAllEndingToday" value="/backoffice/reservation/getAllEndingToday"/>
-    <c:url var="filtersURL" value="/backoffice/reservation/getAllByFilters"/>
     <c:url var="cancelURL" value="/backoffice/reservation/cancelReservation"/>
 </head>
 <body>
@@ -28,26 +24,6 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h4 style="color: #3E4E51">RESERVATIONS</h4>
-        <h5 style="color: #3E4E51"><strong>VIEW: </strong>
-            <a href="${getAll}" style="color: #3E4E51;">All</a> |
-            <a href="${getAllStartingToday}" style="color: #3E4E51;">All Starting Today</a> |
-            <a href="${getAllEndingToday}" style="color: #3E4E51;">All Ending Today</a>
-        </h5>
-
-        <hr>
-
-        <h5 style="color: #3E4E51"><strong>FILTERS: </strong></h5>
-        <form:form class="form-inline" method="POST" action="${filtersURL}" commandName="filtersForm">
-            <div class="form-group">
-                <form:input id="firstName" type="text" path="firstName" class="form-control" placeholder="First Name"/>
-            </div>
-            &nbsp;
-            <div class="form-group">
-                <form:input id="lastName" type="text" path="lastName" class="form-control" placeholder="Last Name"/>
-            </div>
-
-            <input type="submit" class="btn btn-save btn-sm" value="Search"/>
-        </form:form>
 
         <hr>
 

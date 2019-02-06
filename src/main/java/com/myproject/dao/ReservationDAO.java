@@ -11,12 +11,6 @@ public interface ReservationDAO {
 
     List<Reservation> getAllReservationsForHotel(Integer hotelId);
 
-    List<Reservation> getAllReservationsForHotelStartingOnDate(Integer hotelId, Date date);
-
-    List<Reservation> getAllReservationsForHotelEndingOnDate(Integer hotelId, Date date);
-
-    List<Reservation> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName);
-
     void makeReservation(Date startDate, Date endDate, Client client, Room room);
 
     void cancelReservation(Integer reservationId);

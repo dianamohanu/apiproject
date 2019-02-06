@@ -11,8 +11,6 @@
     <c:url var="logoImage" value="/resources/images/logo.png"/>
 
     <c:url var="logoutUrl" value="/j_spring_security_logout"/>
-    <c:url var="hotelInfoURL" value="/backoffice/hotel/hotelInfo"/>
-    <c:url var="addReservationURL" value="/backoffice/reservation/add"/>
     <c:url var="reservationsURL" value="/backoffice/reservation/getAll"/>
 </head>
 
@@ -24,9 +22,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="${hotelInfoURL}"><span class="glyphicon glyphicon-home"></span> Hotel Info</a></li>
             <li><a href="${reservationsURL}"><span class="glyphicon glyphicon-calendar"></span> Reservations</a></li>
-            <li><a href="${addReservationURL}"><span class="glyphicon glyphicon-star"></span> Add Reservation</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#" style="color: #eee8e8"><span class="glyphicon glyphicon-user"></span> Hi, <sec:authentication property="name"/>!</a></li>

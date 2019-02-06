@@ -37,45 +37,6 @@ public class ReservationService {
         return reservationsDTO;
     }
 
-    public List<ReservationDTO> getAllReservationsForHotelStartingOnDate(Integer hotelId, Date date) {
-        List<ReservationDTO> reservationsDTO = new ArrayList<>();
-
-        List<Reservation> reservations = reservationDAO.getAllReservationsForHotelStartingOnDate(hotelId, date);
-        if (!CollectionUtils.isEmpty(reservations)) {
-            for (Reservation r : reservations) {
-                reservationsDTO.add(reservationPopulator(r));
-            }
-        }
-
-        return reservationsDTO;
-    }
-
-    public List<ReservationDTO> getAllReservationsForHotelEndingOnDate(Integer hotelId, Date date) {
-        List<ReservationDTO> reservationsDTO = new ArrayList<>();
-
-        List<Reservation> reservations = reservationDAO.getAllReservationsForHotelEndingOnDate(hotelId, date);
-        if (!CollectionUtils.isEmpty(reservations)) {
-            for (Reservation r : reservations) {
-                reservationsDTO.add(reservationPopulator(r));
-            }
-        }
-
-        return reservationsDTO;
-    }
-
-    public List<ReservationDTO> getAllReservationsForHotelByFilters(Integer hotelId, String firstName, String lastName) {
-        List<ReservationDTO> reservationsDTO = new ArrayList<>();
-
-        List<Reservation> reservations = reservationDAO.getAllReservationsForHotelByFilters(hotelId, firstName, lastName);
-        if (!CollectionUtils.isEmpty(reservations)) {
-            for (Reservation r : reservations) {
-                reservationsDTO.add(reservationPopulator(r));
-            }
-        }
-
-        return reservationsDTO;
-    }
-
     public Integer makeReservation(Integer hotelId, Date startDate, Date endDate, Integer capacity, Client client) {
         List<Room> availableRooms = roomDAO.getAvailableRooms(hotelId, startDate, endDate, capacity);
 
