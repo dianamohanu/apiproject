@@ -32,7 +32,7 @@
     <bean id="myprojectDataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://mysql-server:3306/apiproject"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="username" value="hotelbook"/>
+        <property name="password" value="hotelbookpw"/>
     </bean>
 </beans>
